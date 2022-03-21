@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+        function Css(uname, age) {
+            this.uname = uname;
+            this.age = age;
+        }
+        //利用构造函数的原型对象prototype 创建多个共同的方法
+        Css.prototype = {
+            //构造函数赋值对象会覆盖原来的constructor 属性，需要手动调动constructor
+            constructor:Css,
+            sing:function(){'唱歌1'},
+            move:function(){'电影2'},
+            
+        }
+        // Css.prototype.sex = '女';
+        // Object.prototype.sex = '男';
+        //实例化对象
+        var sc = new Css('刘德华');
+        // sc.sex = '男';
+
+        //当实例对象找不到sex 时，会通过原型__proto__ 找到原型对象prototype，依次类推，直到找到或者返回为空undefined
+        console.log(sc.sex);
+        console.log(sc.toString());//[object Object]
+        console.log(Object.prototype);
+        
+   </script> 
+</body>
+</html>

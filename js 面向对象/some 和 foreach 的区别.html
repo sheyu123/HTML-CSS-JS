@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var  str = ['green','red','pink'];
+
+        //通过some 查找唯一的元素 red
+        str.some(function(value){
+            if(value === 'red'){
+                console.log('11');
+                return true; //找到改元素终止循环
+            }
+             console.log('22');
+        });
+       
+
+        //通过foreach 查找元素 red
+    /*     str.forEach(function(value){
+            if(value === 'red'){
+                console.log('11');
+                return true; //forEach 中的true 不会终止迭代
+            }
+            console.log('22');
+        });
+ */
+        //通过filter 查找元素 red
+   /*      str.filter(function(value){
+            if(value === 'red'){
+                console.log('11');
+                return true; //filter 中的true 不会终止迭代
+            }
+            console.log('22');
+        }); */
+        
+    </script>
+</body>
+</html>

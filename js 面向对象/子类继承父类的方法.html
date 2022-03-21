@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //创建一个父类
+        class Father{
+            //创建一个构造函数
+            constructor(x,y){
+                this.x = x;
+                this.y = y;
+            }
+            sum(){
+                console.log('我是父类方法：'+this.x + this.y);
+            }
+        }
+
+        //创建一个字类继承父类
+        class Son extends Father{
+            constructor(x,y){
+                super(x,y);//调用父类构造函数, super 必选放在子类 this 之前
+                this.x = x; 
+                this.y = y;
+                
+            }
+            sub(){
+                console.log(this.x - this.y); //减法默认转化，将字符串转为数字
+            }
+        }
+
+        //实例化子类
+        var son = new Son(5,3);
+        son.sub(); //调用子类方法
+        son.sum(); //调用父类方法
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点我弹出</button>
+    <script>
+        //1.普通函数
+        function fn() {
+            console.log('我是普通函数');
+        }
+        fn();//我是普通函数
+
+        //1.1.函数表达式
+        var str = function () {
+            console.log('函数表达式');
+        }
+        str();//函数表达式
+
+        // 2. 对象的方法  
+        var obj = {
+            sing: function () {
+                console.log('我是obj 对象的sing方法');
+            }
+        }
+        obj.sing();//我是obj 对象的sing方法
+
+        //3. 构造函数
+        function STR() {
+            this.sings = function () {
+                console.log('我是构造函数的sings 方法');
+            }
+        }
+        var sr = new STR();
+        sr.sings();//我是obj 对象的sing方法
+
+        //4.绑定事件函数
+        //获得事件源
+        var btn = document.querySelector('button');
+        btn.onclick = function () {
+            alert('我是绑定事件函数')
+        }
+
+        //5.定时器函数
+        var sc = setInterval(function () {
+            console.log('我是定时器函数');//我是定时器函数
+            //清除定时器
+            clearInterval(sc);
+        }, 2000);
+
+        // 6.立即执行函数（两种写法）
+        (function mc(){
+            console.log('我是立即执行函数1,不需要调用'); //我是立即执行函数1,不需要调用
+        })();
+
+        (function cs(){
+            console.log('我是立即执行函数2,不需要调用'); //我是立即执行函数2,不需要调用
+        }())
+    </script>
+</body>
+
+</html>

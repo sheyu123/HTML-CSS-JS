@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //查看数组原型对象中的方法
+        console.log(Array.prototype);
+        //给数组原型对象添加相加sum的方法
+        Array.prototype.sum = function(){
+            //定义一个计数器（原型对象中的this 执行调用函数方法的实例对象）
+            var sum = 0;
+            for(var i = 0 ; i < this.length ; i++){
+                sum += this[i];
+            }
+            return sum;
+        }
+        //创建字面量数组
+        var arr = [1,3,5,78,8];
+        //调用添加的sum 函数方法相加数组
+        console.log(arr.sum());
+        //查看添加后的数组原型对象中的方法
+        console.log(Array.prototype);//sum 方法已添加
+
+    </script>
+</body>
+</html>

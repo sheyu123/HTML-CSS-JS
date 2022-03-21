@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+    <script>
+        //bind的方法及其应用 
+        var str = {
+            uname: '好运来',
+            age: 28,
+            sing: function () {
+                console.log('你好明天');
+            }
+        }
+
+        //bind可以用来改变this 指向（注意：bind 与 cell 、apply 方法不同，他不能调用函数）
+        //bind 传递的参数可以使任意参数
+
+        function fn(a, b) {
+            console.log(this);//Object
+            console.log(a + b);//7
+        }
+        //bind 会返回原函数改变this指向后的新函数
+        var fs = fn.bind(str, 1, 6);
+        //调用改变this指向后的新函数
+        fs();
+
+        //需求：点击按钮后禁用，3秒后恢复按钮
+        var btns = document.querySelectorAll('button');
+        //给按钮绑定点击事件
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener('click', function () {
+                //点击按钮后禁用
+                this.disabled = true;
+                // var that = this;
+                //利用定时器3秒后恢复按钮
+                setTimeout(function () {
+                    // btns[i].disabled = false; Cannot set properties of undefined (setting 'disabled')
+                    // 因为点击按钮后，程序立马执行，定时器是在3秒后执行，当定时器开启后，此时的 i = 4，程序报错
+                    // that.disabled = false;
+
+                    //当函数不需要立即调用，但是又想改变函数内部this 指向时，可以用bind
+                    this.disabled = false;
+                }.bind(this), 3000);//bind(this) 中的this 是定时器函数外部，所以指的是按钮
+                //bind(this) 将定时器的this(windows) 改变为 按钮
+            })
+        }
+
+    </script>
+
+</body>
+
+</html>

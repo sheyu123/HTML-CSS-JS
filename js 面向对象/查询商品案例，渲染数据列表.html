@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            outline: none;
+        }
+
+        .head,
+        .bodys {
+            width: 800px;
+            margin: 5px auto;
+            text-align: center;
+        }
+
+        .bodys {
+            text-align: center;
+        }
+
+        .head input {
+            width: 50px;
+        }
+
+        .bodys table {
+            margin: 20px auto;
+            width: 500px;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        .bodys table tr {
+            border: 1px solid #ccc;
+
+        }
+
+        .bodys table td,
+        th {
+            border: 1px solid #ccc;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="head">
+        <span>按照商品价格查询：</span>
+        <input type="text" name="" id="" class="min">-
+        <input type="text" name="" id="" class="max">
+        <button class="search">搜索</button>
+        <span>按照商品名称查询：</span>
+        <input type="text" name="" id="" class="shopping">-
+        <button class="query">查询</button>
+    </div>
+    <div class="bodys">
+        <table>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>产品</th>
+                    <th>价格</th>
+                </tr>
+            </thead>
+
+            <tbody></tbody>
+        </table>
+    </div>
+    <script>
+        //将每个对象以数组的形式存储
+        var date = [{
+            id: 1,
+            uname: '小米',
+            pricle: 3999,
+        }, {
+            id: 2,
+            uname: 'open',
+            pricle: 3999,
+        }, {
+            id: 3,
+            uname: '荣耀',
+            pricle: 1299,
+        }, {
+            id: 4,
+            uname: '华为',
+            pricle: 1999,
+        }]
+
+        //获得事件源
+        var tbody = document.querySelector('tbody');
+        var min = document.querySelector('.min'); //最小值
+        var max = document.querySelector('.max');//最大值
+        var search = document.querySelector('.search');//搜索按钮
+        var query = document.querySelector('.query');//查询
+        var shopping = document.querySelector('.shopping');//商品搜索框
+        //调用方法
+        sex(date);
+        //渲染元素公共方法
+        function sex(mydate) {
+            //渲染元素前先清空tbody
+            tbody.innerHTML = '';
+
+            //通过foreach 渲染元素
+            mydate.forEach(function (value) {
+                //此时value 获得是数组中的每一个对象
+                //创建tr元素
+                var tr = document.createElement('tr');
+                //创建td 元素
+                tr.innerHTML = '<td>' + value.id + '</td><td>' + value.uname + '</td><td>' + value.pricle + '</td>';
+                //将tr 插入tbody中
+                tbody.appendChild(tr);
+
+            })
+        }
+
+        //通过filter 来筛选符合条件的数据，返回的是一个数组
+        //获得min 中输入值，获得max 中输入值
+        search.addEventListener('click', function () {
+            var mins = min.value;
+            var maxs = max.value;
+
+            var result1 = date.filter(function (value) {
+                if (value.pricle <= maxs && value.pricle >= mins) {
+                    return value.pricle
+                }
+            })
+
+            //调用渲染元素的方法
+            sex(result1);
+        })
+
+        //按照商品名称查询
+       /*  query.addEventListener('click', function () {
+            //筛选符合条件的数据
+            var shop = date.filter(function (value) {
+                 return shopping.value === value.uname ? value.uname : '';
+            })
+            //调用渲染方法
+            sex(shop);
+        }); */
+
+        //用some 查照唯一的元素
+        query.addEventListener('click',function(){
+            //通过some 方法更合适，找到这元素就结束循环，效率更高
+            var arr = [];
+            date.some(function(value){
+                //判断输入内容是否相同
+                if(shopping.value === value.uname){
+                //将返回的结果添加到数组中
+                   arr.push(value);
+                    return true;
+                }
+            })
+            //渲染方法
+            sex(arr);
+        });
+
+
+
+
+        /* //根据数组中的对象，动态生成tr
+        for(var i = 0 ; i < date.length ; i++){
+            //创建tr 元素
+            var tr = document.createElement('tr');
+            //将tr元素 插入到 tbody 中
+            tbody.appendChild(tr);
+
+            //通过for in 遍历对象
+            for(var k in date[i]){
+                //创建td
+                var td = document.createElement('td');
+                //将对象中的属性值写入td中
+                td.innerHTML = date[i][k];
+                //将td插入tr
+                tr.appendChild(td);     
+            }
+        } */
+
+    </script>
+</body>
+
+</html>

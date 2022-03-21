@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //父类构造函数
+        function Father(uname,age){
+            this.uname = uname;
+            this.age = age;
+        }
+      
+        //利用Father的原型对象prototype，创建共有的方法
+        Father.prototype.sing = function(){
+            console.log(this.name+'正在唱歌');//undefined正在唱歌
+        }
+
+        //当子类需要继承父类原型对象的方法时，可以通过 子类的原型对象prototype指向父类的实例对象
+        Son.prototype = new Father();
+
+        //当原型对象被赋值对象时， 会覆盖原来的构造函数，需要通过constructor 指回原来的构造函数
+        Son.prototype.constructor = Son;
+
+        //子类构造函数
+        function Son(uname,age){
+            //通过改变this指向，让子类构造函数使用父类的this 属性
+            Father.call(this,uname,age);
+        }
+
+        Son.prototype.max = function(){
+            console.log('考试');
+        }
+        //实例化子类
+        var son = new Son('刘德华',28);
+        console.log(son);//Son {uname: '刘德华', age: 28}
+        console.log(Father.prototype);//{sing: ƒ, constructor: ƒ}
+        console.log(son.__proto__ == Son.prototype);//true
+    </script>
+</body>
+</html>

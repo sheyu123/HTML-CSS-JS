@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 点击按钮调用sing 方法 -->
+    <button>调用sing方法</button>
+    <script>
+        var that; //全局变量
+        //创建一个类
+        class Star{
+            //创建构造函数
+            constructor(uname,age){
+                that = this; //将this 赋值给全局变量 that
+
+                this.uname = uname;
+                this.age = age;
+                //可以在实例化constructor 函数时调用方法，通过this调用
+                // this.sing();
+                // console.log(this);
+                //获取按钮
+                this.btn = document.querySelector('button');
+                //点击按钮调用sing方法
+                this.btn.addEventListener('click',this.sing);
+            }
+            sing(){
+                console.log(this); //方法中的this 指向方法的调用者
+                console.log(that.uname+'正在唱歌1');
+            }
+        }
+        //实例化对象   ES6中没有变量提升（var ，function 在程序运行前，会提升到当前作用域的最前面），必须要定义类，才能通过类实例化对象
+        var us = new Star('刘虎');
+        us.sing();//方法中的this 指向方法的调用者
+
+        console.log(us == that);
+    </script>
+</body>
+</html>

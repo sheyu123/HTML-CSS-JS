@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //创建一个父类构造函数
+        function Father(uname, age) {
+            // this指向父构造函数实例
+            this.uname = uname;
+            this.age = age;
+            
+        }
+        //创建一个子类构造函数
+        function Son(uname, age,score) {
+            // this指向子构造函数实例 ，通过call 改变Father的 this 指向
+            Father.call(this,uname,age);
+            this.score = score;
+        }
+
+        //实例化对象
+        var son = new Son('郭富城',28,100);
+        console.log(son);//Son {uname: '郭富城', age: 28, score: 100}
+
+
+
+       /*  //创建一个类
+        class Str {
+            //创建构造函数
+            constructor(uname, age) {
+                this.uname = uname;
+                this.age = age;
+                this.sing = function () {
+                    console.log('唱歌');
+                }
+            }
+        }
+        //创建一个子类继承父类
+        class Son extends Str {
+            constructor(uname, age) {
+                super(uname, age);
+                this.uname = uname;
+                this.age = age;
+            }
+        }
+        //实例化对象
+        var str = new Str('刘德华', 18);
+        var son = new Son('张学友', 19);
+        str.sing();//唱歌
+        son.sing();//唱歌
+        console.log(son.uname);//张学友 */
+
+    </script>
+</body>
+
+</html>

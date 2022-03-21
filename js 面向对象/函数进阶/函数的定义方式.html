@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //普通函数的定义
+        function fn(){
+
+        }
+
+        //函数表达式
+        var str = function(){
+
+        }
+
+        //通过new Function('实参1','实参2','函数体') 
+        //Function 里面的参数都必须是字符串形式
+        //所有的函数都是Fuction 函数的实例对象
+        //函数也属于对象
+        var csgo = new Function('a','b','console.log(a+b)');
+        csgo(1,2);//3
+
+        //instanceof 运算符用于检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上。
+        console.log(csgo instanceof Object);
+    </script>
+</body>
+</html>

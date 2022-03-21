@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //定义一个对象
+        var num = {
+            id: 1,
+            name: '刘德华',
+            age: 18,
+            sex : '男'
+        }
+
+        //添加属性(以前)
+        /* num.sing = '恭喜发财';
+        console.log(num);//Object */
+
+        //利用Object.defineProperty 方法给给对象添加属性
+        /* Object.defineProperty(num , 'sing' , {
+            value : '情歌王',
+        })
+        console.log(num); */ //{id: 1, name: '刘德华', age: 18, sing: '情歌王'}
+
+        //利用Object.defineProperty 修改方法的属性
+        /* Object.defineProperty(num , 'age', {
+            value : 28,
+        });
+        console.log(num); */ //{id: 1, name: '刘德华', age: 28}
+
+        //设置属性是否能被重写
+        Object.defineProperty(num, 'id', {
+            //默认为false，为true则可以被重写
+            writable: false,
+        });
+
+        //当设置writable 后，该属性不可被重写
+        /*  num.id = 5;
+         console.log(num); *///{id: 1, name: '刘德华', age: 28}
+
+        //设置属性是否能被遍历
+        //当遇到隐私数据时，可以通过enumerable 让该属性不被遍历出来
+        Object.defineProperty(num, 'adresss', {
+            value: '中国湖南',
+            //默认为false，为true则可以被遍历出来
+            enumerable: false,
+        });
+
+        //遍历对象方法1
+        for (var k in num) {
+            console.log(num[k]); // id : 1, name : '刘德华', age : 18
+        }
+
+        //遍历对象方法2 num：要返回其枚举自身属性的对象 , 返回值：一个表示给定对象的所有可枚举属性的字符串数组。
+        var obj = Object.keys(num);
+        var objValue = Object.values(num);
+
+        console.log(obj); //(3) ['id', 'name', 'age']
+        console.log(objValue); //[1, '刘德华', 18]
+
+        //遍历对象方法3 返回一个数组，包含对象自身的所有属性（包含不可枚举属性）遍历可以获取key和value
+
+        Object.getOwnPropertyNames(num).forEach(function (key) {
+            console.log(key + ':' + num[key])
+        });
+
+        /* id: 1
+        Object.defineProperty.html: 66 name: 刘德华
+        Object.defineProperty.html: 66 age: 18
+        Object.defineProperty.html: 66 adresss: 中国湖南 */
+
+        //configurable:目标属性是否可以被删除或是否可以再次修改特性true | false默认为false
+        //可配置：目标属性是否可以被删除或是否可以再次修改特性真假默认为false
+        Object.defineProperty(num, 'id', {
+            configurable : false,
+        });
+
+        //删除对象中的属性
+        delete num.id;
+        console.log(num); //{id: 1, name: '刘德华', age: 18, sex: '男', adresss: '中国湖南'}
+
+        delete num.sex;
+        console.log(num);//{id: 1, name: '刘德华', age: 18, adresss: '中国湖南'}
+
+
+    </script>
+</body>
+
+</html>

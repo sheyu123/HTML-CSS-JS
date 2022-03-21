@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //改变函数内的this 指向，js 提供了 三种方法 call() apply() bind()
+        // 1.call()
+        var fc = {
+            name : '好运来',
+        }
+
+        function fn(a,b){
+            console.log(this);//name : '好运来' 
+            console.log(a+b);//6
+        }
+        //通过call 改变this指向
+        fn.call(fc,1,5);
+
+        //2.call 第一个可以调用函数 ，第二个可以改变函数内部this 指向
+        // call 的主要作用可以实现继承
+
+
+        function Father(uname,age){
+            this.uname = uname;
+            this.age = age;
+        }
+
+        function Son(uname,age){
+            //通过调用父构造函数.call()方法改变this指向
+            Father.call(this,uname,age)
+        }
+
+        //实例化对象
+        var son = new Son('刘德华',28);
+        console.log(son);//Son {uname: '刘德华', age: 28}
+
+    </script>
+</body>
+</html>

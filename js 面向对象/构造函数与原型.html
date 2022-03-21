@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //创建一个构造函数
+        function Star(uname,age){
+            this.uname = uname;
+            this.age = age;
+        }
+
+        //每个构造函数都有一个原型对象prototype,利用原型对象赋值对象创建多个共同的函数方法
+        Star.prototype = {
+            //当原型对象被赋值对象时，需要调用constructor 构造函数
+            constructor:Star,
+
+            sing:function(){
+                console.log(this.uname+'唱歌');
+            },
+            move:function(){
+                console.log(this.uname+'电影');
+            },
+        }
+
+        //实例化对象
+        var str = new Star('刘德华');
+        //因为实例对象中有对象原型__proto__ 可以指向原型对象
+        str.sing();
+        str.move();
+        //判断实例对象str中对象原型__prto__  是否指向构造函数Str中的原型对象prototype
+        console.log(str.__proto__ == Star.prototype);//true
+
+        //查看实例对象str中对象原型__prto__中的constructor 属性
+        console.log(str.__proto__);//{constructor: ƒ, sing: ƒ, move: ƒ}
+        console.log(str.__proto__.constructor);//通过 constructor:Star 指向了Star 构造函数
+        //查看构造函数Str中的原型对象prototype中的constructor 属性
+        console.log(Star.prototype);//{constructor: ƒ, sing: ƒ, move: ƒ}
+        console.log(Star.prototype.constructor);//通过 constructor:Star 指向了Star 构造函数
+
+        //并不是所有的对象都有原型，Object对象和null 就没有原型
+        console.log(Star.prototype.__proto__ == Object.prototype);//true
+        console.log(Object.prototype.__proto__);//null
+        console.log(Object.prototype.constructor);//ƒ Object() { [native code] }
+    </script>
+</body>
+</html>

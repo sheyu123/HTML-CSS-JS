@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点我弹出</button>
+    <script>
+        //1.普通函数
+        function fn() {
+            console.log(this); //Window
+        }
+        fn();//我是普通函数
+
+        //1.1.函数表达式
+        var str = function () {
+            console.log(this);//Window
+        }
+        str();//函数表达式
+
+        // 2. 对象的方法  
+        var obj = {
+            sing: function () {
+                console.log(this);//{sing: ƒ}
+            }
+        }
+        obj.sing();//我是obj 对象的sing方法
+
+        //3. 构造函数
+        function STR() {
+            this.sings = function () {
+                console.log(this);//STR {sings: ƒ}
+            }
+        }
+        var sr = new STR();
+        sr.sings();//我是obj 对象的sing方法
+
+        //构造函数的原型对象的方法 也指向实例对象
+        STR.prototype.move = function(){
+            console.log(this);//STR {sings: ƒ}
+        }
+        sr.move();
+
+        //4.绑定事件函数
+        //获得事件源
+        var btn = document.querySelector('button');
+        btn.onclick = function () {
+            alert(this)//Window
+        }
+
+        //5.定时器函数
+        var sc = setInterval(function () {
+            console.log(this);//Window
+            //清除定时器
+            clearInterval(sc);
+        }, 2000);
+
+        // 6.立即执行函数（两种写法）
+        (function mc(){
+            console.log(this); //Window
+        })();
+
+        (function cs(){
+            console.log(this); //Window
+        }())
+    </script>
+</body>
+
+</html>

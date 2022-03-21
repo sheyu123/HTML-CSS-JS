@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* //创建类
+        class Father{
+            //constructor 函数
+            constructor(){
+                
+            }
+            //方法
+            sum(){
+                console.log('我是父类'); //相加
+            }
+        }
+
+        //创建一个子类继承父类
+        class Son extends Father{
+            
+        }
+        var son  = new Son(); //实例化Son 对象
+        //调用父类的方法
+        son.sum(); */
+
+        //创建一个父类2
+       /*  class Father2{
+            constructor(num1,num2){ //创建 constructor 函数并传入形参
+                this.num1 = num1;
+                this.num2 = num2;
+            }
+            sum(){
+                console.log(this.num1 + this.num2);
+            }
+        }
+
+        //创建一个子类2继承父类2
+        class Son2 extends Father2{
+            constructor(num1,num2){ //调用父类的构造函数(可以访问和调用父类的构造函数)
+                super(num1,num2);
+            }
+        }
+        //实例化对象
+        var son2 = new Son2(1,5);
+        son2.sum(); */
+
+        //创建一个类
+        class Father3{
+            constructor(x,y){
+                this.x = x;
+                this.y = y;
+            }
+            sum(){
+                console.log(this.x + this.y);
+            }
+        }
+
+        //继承父类
+        class Son3 extends Father3{
+            constructor(x,y){
+                super(x,y); //调用父类构造函数
+            }
+        }
+        //实例化son3
+        var son3 = new Son3(5,2);
+        son3.sum();
+    </script>
+</body>
+</html>

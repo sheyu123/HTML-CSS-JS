@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //利用some 查找符合条件的元素（返回的是一个布尔值 true 和 false）
+        var str = ['xiyou','弼马温','pink'];
+        var first = str.some(function(value,index,str){
+            return value == '弼马温';
+        });
+        console.log(first); //true
+
+        //过滤器filter 和 some 的区别
+        //1. filter 查找 所有 符合条件的元素，返回的是一个数组
+        //2. some 是查找符合条件的的元素，返回的是一个布尔值（true,false）,当查找到符合条件的元素时则终止循环
+
+
+        //map() 返回是一个带有布尔值的数组
+        var sum = [1,6,58,88];
+        var re = sum.map(function(value,index,sum){
+            return value >= 8;
+        });
+        console.log(re);//(4) [false, false, true, true]
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //super 关键字的使用
+        
+        //创建一个类Father
+        class Father{
+            //创建一个普通函数(在类中不需要些function)
+            say(){
+                return '我是大哥'
+            }
+        }
+
+        //创建一个子类继承父类
+        class Son extends Father{
+            constructor(x,y){
+                super(x,y); //继承父类的子类，调用自己的构造函数时，需要加上super;
+                this.x = x;
+                this.y = y;
+            }
+            say(){
+                // console.log('我是小弟');
+                console.log(super.say()); //利用super 调用普通函数
+            }
+        }
+        //继承中的方法和属性采用 就近原则
+
+        // 实例化子类
+        var son = new Son('dd','ss');
+        son.say(); 
+        console.log(son.x);
+        
+    </script>
+</body>
+</html>

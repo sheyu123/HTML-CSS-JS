@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //创建一个构造函数
+        function Css(uname, age) {
+            this.uname = uname;
+            this.age = age;
+        }
+        //当需要共同的函数方法时，可以利用构造函数的原型对象prototype
+        /*  Css.prototype.sing = function(){
+             console.log('我是方法1');
+         } */
+
+        //当需要多个共同的函数方法时，可以利用原型对象prototype
+        Css.prototype = {
+            //当你利用对象给原型对象赋值时，会覆盖掉原型对象的constructor属性
+            //如果我们修改了原来的原型对象，给原型对象赋值的是一个对象，则必须手动利用constructor 调回原来的构造函数
+            constructor:Css,
+            sing: function () {
+                console.log('唱歌');
+            },
+            move: function () {
+                console.log('电影');
+            }
+
+        }
+
+        //实例化
+        var csgo = new Css('刘德华', 28);
+            //调用构造函数原型对象方法
+            csgo.sing();//我是方法1
+            // console.log(csgo.__proto__ === Css.prototype);//true 因为对象中的__proto__属性指向构造函数的prototype原型对象
+
+            console.log(csgo.__proto__);//指向他的对象原型
+            console.log(Css.prototype);//{sing: ƒ, constructor: ƒ} 指向他的原型对象
+            console.log(Css.prototype.constructor);//对象原型(_proto_)和构造函数（ prototype ) 原型对象里面都有一个属性constructor属性，constructor我们称为构造函数，因为它指回构造函数本身。
+            console.log(csgo.__proto__.constructor);
+
+    </script>
+</body>
+
+</html>

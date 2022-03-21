@@ -1,0 +1,23 @@
+/* 图标字体样式 */
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?3yon0z');
+  src:  url('../fonts/icomoon.eot?3yon0z#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?3yon0z') format('truetype'),
+    url('../fonts/icomoon.woff?3yon0z') format('woff'),
+    url('../fonts/icomoon.svg?3yon0z#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.fr .icomoon{
+  font-family: "icomoon";
+  line-height: 26px;
+  font-size: 16px;
+}
+
+/* .shopcart .icomoon{
+  font-family: "icomoon";
+  line-height: 38px;
+} */
