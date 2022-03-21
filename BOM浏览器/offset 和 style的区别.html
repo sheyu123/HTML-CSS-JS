@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../HTML+CSS/HTML+CSS品优购项目/CSS/base.css">
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script>
+        var box = document.querySelector('.box');
+        console.log(box.offsetWidth); //200
+        console.log(box.style.width);//null style 只能获取元素的行内样式
+
+        //style 主要用于赋值， offset 主要用于获取元素的大小和为止
+    </script>
+</body>
+
+</html>

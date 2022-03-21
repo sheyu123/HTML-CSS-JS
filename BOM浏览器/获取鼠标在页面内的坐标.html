@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 500px;
+            height: 500px;
+            margin: 50px auto;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        //事件源
+        var div = document.querySelector('div');
+        //注册事件
+        div.addEventListener('click',function(e){
+            //获得鼠标距离浏览器的距离
+            var x1 = e.pageX;
+            var y1 = e.pageY;
+
+            //获得div盒子距离左边距离浏览器的距离
+            var divX = div.offsetLeft;
+            var divY = div.offsetTop;//获得div盒子距离上面距离浏览器的距离
+
+            //鼠标在div中的的最终坐标等于 （鼠标距离浏览器的距离pageX/pageY - div距离浏览器的距离offsetLeft/offsetTop ）
+            var  x = x1 - divX; 
+            var  y = y1 - divY;
+
+            console.log('鼠标距离div的X坐标是'+x);
+            console.log('鼠标距离div的Y坐标是'+y);  
+        });
+    </script>
+</body>
+</html>

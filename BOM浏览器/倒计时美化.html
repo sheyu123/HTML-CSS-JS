@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../HTML+CSS/HTML+CSS品优购项目/CSS/base.css">
+    <style>
+        .ul {
+            width: 500px;
+            margin: 80px auto;
+        }
+
+        .ul li {
+            float: left;
+            background-color: #ccc;
+            width: 80px;
+            height: 80px;
+            margin-right: 10px;
+            text-align: center;
+            line-height: 80px;
+            color: #fff;
+            font-weight: bold;
+            font-size: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul class="ul">
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+
+        var times = setInterval(getTimes, 1000); //每秒钟调用一次这个方法(setinterval : 重复调用)
+
+        function getTimes() {
+
+            var date1 = +new Date();//获得当前的时间戳
+            var date2 = +new Date('2022-3-5 12:0:0') // 获得用户输入的时间戳
+            var date3 = (date2 - date1) / 1000 //剩余的时间戳（单位秒）
+
+            if (date3 > 0) {
+                var d = parseInt(date3 / 60 / 60 / 24)  //天数
+                d = d < 10 ? '0' + d : d;
+                var h = parseInt(date3 / 60 / 60 % 24) //小时
+                h = h < 10 ? '0' + h : h;
+                var m = parseInt(date3 / 60 % 60) //分钟
+                m = m < 10 ? '0' + m : m;
+                var s = parseInt(date3 % 60) //秒
+                s = s < 10 ? '0' + s : s;
+                //获得li
+                var ul = document.querySelector('ul');
+                // var str = '剩余' + d + '天' + h + '小时' + m + '分钟' + s + '秒';
+
+                ul.children[0].innerHTML = h;
+                ul.children[1].innerHTML = m;
+                ul.children[2].innerHTML = s;
+
+                //在调用一次时间方法
+                //times = setTimeout(getTimes, 1000);
+            } else {
+                alert('时间到了');
+                clearInterval(times);
+
+            }
+
+        }
+        getTimes(); //先调用一次这个函数方法（因为setInterval 是 1秒后才执行）防止刷新空白
+
+    </script>
+</body>
+
+</html>

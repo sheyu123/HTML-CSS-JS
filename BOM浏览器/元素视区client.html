@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 500px;
+            height: 500px;
+            background-color: aqua;
+            margin: 10px;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+
+    <script>
+        //元素可视区 client
+        var  div = document.querySelector('div');
+        div.addEventListener('click',function(){
+          console.log(div.clientWidth); //clientWidth 与 offsetWidth 最大的区别在于 clientWidth 不包含外边距和边框 
+
+        });
+    </script>
+</body>
+</html>

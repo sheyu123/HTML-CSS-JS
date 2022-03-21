@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1.先执行执行栈中的同步任务。
+        //⒉.异步任务(回调函数)放入任务队列中。
+        //3.一旦执行栈中的所有同步任务执行完毕，系统就会按次序读取任务队列中的异步任务，于是被读取的异步任务结束等待状态，进入执行栈，开始执行。
+
+        console.log('1'); //同步任务
+
+        setTimeout(fn ,0);//异步任务（回调函数）
+        function fn(){
+            console.log('3');
+        }
+        
+        console.log('2');//同步任务
+
+        document.addEventListener('click',function(){ //异步任务（需要通过点击才能将任务放回）
+            console.log('click');
+        })
+    </script>
+</body>
+</html>

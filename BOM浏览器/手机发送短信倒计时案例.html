@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <input type="text"><button>发送</button>
+    </div>
+    <script>
+        var button = document.querySelector('button');//获得按钮
+        var times = 3; //设置全局变量用于计数器
+        //添加点击事件
+        button.addEventListener('click', fn );
+
+        //短信倒计时方法
+        function fn() {
+            //添加定时器 setinterval 
+            var ti = setInterval(function () {
+                //判断计数器是否为0
+                if (times === 0) {
+                    clearInterval(ti);//清除定时器
+
+                    button.disabled = false; //恢复按钮
+                    button.innerHTML = '发送';
+
+                    times = 3; //恢复计数器的个数
+                } else {
+                    button.disabled = true; //点击发送后禁用该按钮
+                    //将剩余的秒数填入
+                    button.innerHTML = '还剩' + times + '秒';
+
+                    times--; //执行完后定时器减1
+                }
+            }, 1000)
+
+        }
+
+
+    </script>
+</body>
+
+</html>

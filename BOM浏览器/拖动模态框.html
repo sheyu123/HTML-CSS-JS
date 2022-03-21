@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../HTML+CSS/HTML+CSS品优购项目/CSS/base.css">
+    <link rel="stylesheet" href="../注册事件的方式/css/style.css">
+    <style>
+        .head {
+            width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+
+        .head a {
+            display: inline-block;
+            width: 150px;
+            height: 50px;
+            line-height: 50px;
+            font-size: 18px;
+            color: #000;
+
+        }
+
+        /* 登录页面 */
+        .box {
+            width: 512px;
+            height: 280px;
+            background-color: #fff;
+            margin: 0 auto;
+            position: absolute;
+            top: 73px;
+            left: 704px;
+            display: none;
+        }
+
+        .spans {
+            width: 24px;
+            text-align: center;
+            font-family: 'icomoon';
+            font-size: 15px;
+            display: inline-block;
+            border-radius: 50%;
+            position: absolute;
+            top: -9px;
+            right: -7px;
+            background-color: red;
+            color: #FFF;
+            cursor: pointer;
+        }
+
+        /* 遮罩层 */
+        .footer {
+            width: 100%;
+            height: 100%;
+            background-color: #ccc;
+            position: absolute;
+            top: 0;
+            opacity: 0.5;
+            z-index: -999;
+            display: none;
+        }
+
+        .box-head {
+            margin-top: 5px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 18px;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .box-head:hover{
+            cursor: move;
+        }
+
+        .body1 {
+            margin-top: 20px;
+        }
+
+        .box-body1 {
+            height: 39px;
+            margin-bottom: 15px;
+        }
+
+        .box-body1 label {
+            line-height: 39px;
+            width: 90px;
+            float: left;
+            font-size: 14px;
+            text-align: right;
+            padding-right: 10px;
+        }
+
+        .box-body1 input {
+            width: 346px;
+            height: 35px;
+            padding-left: 10px;
+        }
+
+        .btn {
+            width: 255px;
+            height: 40px;
+            line-height: 40px;
+            margin: 40px auto;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+
+        .btn a {
+            color: #000;
+            display: inline-block;
+            font-size: 18px;
+        }
+
+        /* /* 小图标 */
+        /* .icon{
+            font-family: 'icomoon';
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+            z-index: 9999;
+        } */
+    </style>
+
+</head>
+
+<body>
+    <!-- <div class="icon"></div> -->
+
+    <!-- 点击登录 -->
+    <div class="head">
+        <a href="javascript:;" class="log">点击弹出登录框</a>
+    </div>
+    <!-- 登录框 -->
+    <div class="box">
+        <!-- 用户登录 -->
+        <div class="box-head">
+            登录会员
+        </div>
+        <!-- 关闭按钮 -->
+        <span class="spans"></span>
+        <div class="dd">
+            <div class="body1">
+                <!-- 用户名 -->
+                <div class="box-body1">
+                    <label for="">用户名:</label>
+                    <input type="text" placeholder="请输入用户名">
+                </div>
+                <!-- 密码 -->
+                <div class="box-body1">
+                    <label for="">登录密码:</label>
+                    <input type="password" placeholder="请输入密码">
+                </div>
+                <div class="btn">
+
+                    <a href="javascript:;">登录会员</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 遮罩层 -->
+    <div class="footer"></div>
+
+    <script>
+        //加载完成后运行
+        window.addEventListener('load', function () {
+            var a = document.querySelector('.log'); //a点击登录标签
+            var login = document.querySelector('.box');//用户登录页
+            var zheZhao = document.querySelector('.footer');//遮罩层
+            var guanbi = document.querySelector('.spans')//关闭按钮
+
+            //点击a 登录出现 登录页面和遮罩层
+            a.addEventListener('click', function () {
+                login.style.display = 'block'; //出现登录页
+                zheZhao.style.display = 'block';//出现遮罩
+            })
+            //关闭按钮
+            guanbi.addEventListener('click', function () {
+                login.style.display = 'none'; //隐藏登录页
+                zheZhao.style.display = 'none';//隐藏遮罩
+                //恢复窗口位置
+                login.style.left = 704 + 'px';
+                login.style.top = 73 + 'px';
+
+            });
+
+
+            //添加按下mousedown 移动mousemove 弹起事件 mouseup
+            var yonhu = document.querySelector('.box-head'); //用户名
+            var box = document.querySelector('.box');//大盒子
+            //鼠标按下
+            yonhu.addEventListener('mousedown', function (e) {
+                var x = e.pageX - box.offsetLeft; //鼠标距离盒子x的距离
+                var y = e.pageY - box.offsetTop; //鼠标距离盒子y的距离
+
+                // 鼠标移动（因为按下时的鼠标距离盒子的坐标不会变，用按下时的鼠标距离浏览器的坐标 - 鼠标距离盒子的坐标，即可获得盒子距离浏览器的坐标）
+                //用鼠标在页面内坐标减去鼠标在盒子内的坐标，赋值给 box 的top 和left
+                document.addEventListener('mousemove', mover);
+                function mover(e) {
+                    var x1 = e.pageX - x;
+                    var y1 = e.pageY - y;
+
+                    box.style.left = x1 + 'px'
+                    box.style.top = y1 + 'px';;
+
+                }
+
+                //鼠标弹起事件(鼠标弹起时删除移动事件)
+                document.addEventListener('mouseup', function () {
+                    //删除移动事件
+                    document.removeEventListener('mousemove', mover)
+                })
+            });
+
+            //小图标
+            /*  var icon = document.querySelector('.icon');
+             document.addEventListener('mouseover',function(e){
+                 icon.style.top = e.pageY+'px';
+                 icon.style.left = e.pageX+'px';
+                 icon.style.display = 'block';
+             }) */
+
+        })
+    </script>
+</body>
+
+</html>

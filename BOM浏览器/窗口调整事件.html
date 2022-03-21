@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 500px;
+            height: 500px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        
+        //窗口事件 onresize
+        window.addEventListener('load',function(){ //窗口加载事件
+            var div = document.querySelector('div'); //获得div事件源
+            window.addEventListener('resize',function(){  //窗口大小事件
+            // console.log(window.innerWidth);
+                //判断宽口大小
+                if(window.innerWidth <= 800){
+                    div.style.display = 'none';
+                }else{
+                    div.style.display = 'block';
+                }
+            })
+        })
+    </script>
+    <div></div>
+</body>
+</html>

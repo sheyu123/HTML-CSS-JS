@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div></div>
+
+    <script>
+        //window .setTimeout(调用函数，[延迟的毫秒数]);
+        //1.window可以省略。
+        //2.这个调用函数可以直接写函数，或者写函数名或者采取字符串‘函数名0'三种形式。第三种不推荐
+        //3.延迟的毫秒数省略默认是0，如果写，必须是毫秒。
+     /*    window.addEventListener('load',function(){
+            setTimeout(fn ,1000);
+            function fn(){
+                alert('好运来');
+            }
+        })
+ */
+        var times = setInterval(getTimes, 1000); //每秒钟调用一次这个方法(setinterval : 重复调用)
+                                                    //setTimeout()(只会调用一次)
+        function getTimes() {
+            var date1 = +new Date();//获得当前的时间戳
+            var date2 = +new Date('2022-3-5 11:35:0'); // 获得用户输入的时间戳
+
+            var date3 = (date2 - date1) / 1000 //剩余的时间戳（单位秒）
+
+            if (date3 > 0) {
+                var d = parseInt(date3 / 60 / 60 / 24)  //天数
+                d = d < 10 ? '0' + d : d;
+                var h = parseInt(date3 / 60 / 60 % 24) //小时
+                h = h < 10 ? '0' + h : h;
+                var m = parseInt(date3 / 60 % 60) //分钟
+                m = m < 10 ? '0' + m : m;
+                var s = parseInt(date3 % 60) //秒
+
+                //获得div
+                var div = document.querySelector('div');
+                var str = '剩余' + d + '天' + h + '小时' + m + '分钟' + s + '秒';
+                div.innerHTML = str;
+
+                //在调用一次时间方法
+                //times = setTimeout(getTimes, 1000);
+            }else{
+                alert('时间到了');
+                clearInterval(times);
+                
+            }
+
+        }
+
+
+    </script>
+</body>
+
+</html>

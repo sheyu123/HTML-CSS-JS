@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <script>
+
+
+        setInterval(function(){//(setInterval 重复调用)
+            document.body.style.backgroundColor = '#000';
+            //定时器setTimeout(只加载一次)
+            setTimeout(fn );
+            
+        });
+        //改变body颜色
+        function fn(){
+            document.body.style.backgroundColor = '#fff';
+        }
+
+    </script>
+</body>
+
+</html>

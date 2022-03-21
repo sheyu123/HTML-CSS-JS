@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="index.html">
+        <!-- name = uname -->
+        <input type="text" name="uname">
+        <button>提交</button>
+        <!-- 浏览器的前进和后退功能实现 -->
+        <button class="before">前进</button>
+    </form>
+    <script>
+        var btn1 = document.querySelector('.before');
+        btn1.addEventListener('click',function(){
+            //history.forward();//前进功能
+            history.go(-1);//前进功能
+        });
+    </script>
+</body>
+</html>

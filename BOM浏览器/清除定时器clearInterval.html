@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>开启定时器</button><button>清除定时器</button>
+    <script>
+        //获得button
+        var btn = document.querySelectorAll('button');
+        //定义全部变量
+        var timer = null;
+        //注册事件（开启定时器）
+        btn[0].addEventListener('click',function(){
+            timer = setInterval(function(){
+                console.log('我来了');
+            },1000);
+        });
+        //注册事件（清除定时器）
+        btn[1].addEventListener('click',function(){
+            clearInterval(timer);
+        });
+    </script>
+</body>
+</html>

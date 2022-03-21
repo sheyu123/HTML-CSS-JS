@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <script>
+        //5秒跳转到新页面
+        var div  = document.querySelector('div');
+
+       //设置定时器
+        setInterval(getTimes,1000);
+
+        var timer = 3; //设置计数器
+        function getTimes(){
+            if(timer == 0){
+                location.href = 'https://www.baidu.com';
+            }else{
+                div.innerHTML = '剩余'+timer+'秒';
+                timer--;
+            }
+        }
+        getTimes(); //先调用一次这个函数方法（防止刷新空白）一定要写在计数器下面，不然会出现undefiend
+        
+    </script>
+</body>
+</html>
