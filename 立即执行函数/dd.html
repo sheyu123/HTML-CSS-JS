@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../HTML+CSS/HTML+CSS品优购项目/CSS/base.css">
+    <style>
+        div {
+            margin-top: 10px;
+            width: 50px;
+            height: 50px;
+            background-color: aqua;
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <button>点我运动</button>
+    <button class="dd"> 点我运动2</button>
+    <div></div>
+
+    <script>
+        //点击按钮使div运动
+        var div = document.querySelector('div');
+        var button = document.querySelector('button');
+        var button2 = document.querySelector('.dd');
+
+
+        button.addEventListener('click', function(){
+            dongHua(div , 300);
+        });
+
+        button2.addEventListener('click', function(){
+            dongHua(div , 500,function(){
+                div.style.backgroundColor = 'yellow';
+            });
+        });
+
+        //封装动画函数
+        function dongHua(obj,target,callback) { //obj:目标对象 ， target:目标位置,callback:回调函数
+            clearInterval(obj.timer); //进入方法前清除其他定时器
+            obj.timer = setInterval(function () {
+
+                var divLeft = (target - obj.offsetLeft) / 10; //做匀减速运动
+
+                //由于divLeft 可能存在小数，需要取整
+                divLeft = divLeft > 0 ? Math.ceil(divLeft) : Math.floor(divLeft);
+
+                //判断是否到达目标值
+                if (obj.offsetLeft == target) {
+                    //清除定时器
+                    clearInterval( obj.timer);
+                    if(callback){
+                        callback();
+                    }
+                } else {
+                    obj.style.left = obj.offsetLeft + divLeft + 'px';
+                }
+
+            }, 15);
+        }
+    </script>
+</body>
+
+</html>

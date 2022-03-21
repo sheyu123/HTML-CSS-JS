@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+
+    </div>
+    <script>
+        //innerHTML 创建 大量元素
+        var div = document.querySelector('div');
+        //div.innerHTML = '<a href="">好运来</a>';
+        //通过for循环来创建 a 标签
+        for (var i = 0; i <= 100; i++) {
+            div.innerHTML += '<a href="">好运来</a>';
+        }
+
+        //creatElement 创建大量元素
+        for (var i = 0; i <= 100; i++) {
+            var as = document.createElement('a');
+            div.appendChild(as);
+        }
+
+        //测试时间
+        function fn() {
+            //拼接字符串会消耗大量资源，由于字符串的不可变性，每次生成一个新的字符串，都需要在内存中开辟一块空间，大量生成字符串会非常占用内存
+            var d1 = +new Date();
+        /*     for (var i = 0; i <= 1000; i++) {
+                div.innerHTML += '<a href="">好运来</a>'; //--------------1070毫秒
+            }
+             */
+            
+            /* for (var i = 0; i <= 100000; i++) {
+                var as = document.createElement('a'); //--------------66毫秒
+                div.appendChild(as);
+            } */
+
+         /*    var num = [];
+            for (var i = 0; i <= 100000; i++) {
+                num.push('<a href="">好运来</a>');//-------------152毫秒
+            } 
+            div.innerHTML = num.join('');
+ */
+            var d2 = +new Date();
+            var d3 = d2 - d1;
+            console.log(d3); //消耗的时间
+
+        }
+        fn();
+
+    </script>
+</body>
+
+</html>

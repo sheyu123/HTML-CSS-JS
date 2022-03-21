@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="ds" index='1'></div>
+    <script>
+        //获得属性值
+        //element.属性 
+        var div = document.getElementById('ds');
+        console.log(div.id);//ds
+
+        //element.getAttribute get:获得  Attribute：属性 （主要用于获得自定义的属性值）
+        console.log(div.getAttribute('id')); //ds
+        console.log(div.getAttribute('index')); //1
+
+        //修改属性值 element.setAttribute('属性名','新的值')
+        div.id = 'demo'; //div id="demo"
+        div.setAttribute('id', 'abs')//div id="abs"
+        div.setAttribute('index','88')//index='88'
+
+       //删除属性
+       div.removeAttribute('index');
+
+
+    </script>
+</body>
+
+</html>

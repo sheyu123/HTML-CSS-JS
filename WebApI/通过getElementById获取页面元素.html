@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo">2022-3-1</p>
+
+    <script>
+        //因为页面是从上往下加载，所以先得有标签，所以script标签写在下面
+        //通过getElementById获取页面元素
+        // id 是敏感的大小写的字符串
+        var times = document.getElementById('demo');
+        console.log(times); //<p id="demo"></p>
+        console.log(typeof times); //返回的是一个元素对象 object
+        console.dir(times) //打印返回的元素对象，可以产看你们的属性和方法
+    </script>
+</body>
+</html>

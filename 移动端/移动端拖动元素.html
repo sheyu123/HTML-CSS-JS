@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+       
+       //事件源
+       var div  = document.querySelector('div');
+       var x  = 0; //鼠标初始坐标
+       var y = 0;
+
+       var divLeftX = 0;
+       var divTopY = 0;//盒子初始offsetTop 和 offsetLeft
+
+       //利用touchstart（触摸）来触摸元素
+       div.addEventListener('touchstart',function(e){
+           //触发div时获得盒子的初始offsetTop 和 offsetLeft
+           divLeftX = this.offsetLeft;
+           divTopY = this.offsetTop;
+
+           //触发div时获得鼠标的初始x 和 y坐标
+           x = e.targetTouches[0].pageX;
+           y = e.targetTouches[0].pageY;
+       });
+
+       //利用touchmove（移动）来移动元素
+       div.addEventListener('touchmove',function(e){
+
+           //移动div时获得鼠标移动时x 和 y坐标
+           //用移动后div的鼠标坐标 - 移动前的div的鼠标坐标
+           var moveX = e.targetTouches[0].pageX - x;
+           var moveY = e.targetTouches[0].pageY - y;
+           
+           //盒子的left = 初始left + （div移动后的坐标 - div 移动前的坐标）
+           this.style.left = divLeftX + moveX + 'px';
+           this.style.top = divTopY + moveY + 'px';
+           e.preventDefault();//阻止屏幕滚动事件
+       });
+       
+    </script>
+</body>
+</html>

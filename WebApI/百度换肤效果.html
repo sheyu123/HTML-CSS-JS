@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 样式重置样式 -->
+    <link rel="stylesheet" href="../HTML+CSS/HTML+CSS品优购项目/CSS/base.css">
+    <!-- 图标样式 -->
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        body{
+            background: url('https://i0.hdslb.com/bfs/article/71aa4ad727fa000b9fd964d2c4912ff9b4d7e414.jpg') no-repeat center top;
+        }
+        ul{
+            width: 800px;
+            margin: 50px auto;
+            /* background-color: red; */
+            border: 3px solid #fff;
+        }
+
+        ul li{
+            float: left;
+        }
+
+        ul li img{
+            width: 200px;
+            height: 100px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul class="clearfix">
+            <li><img src="https://i0.hdslb.com/bfs/article/71aa4ad727fa000b9fd964d2c4912ff9b4d7e414.jpg" alt=""></li>
+            <li><img src="http://pic1.win4000.com/wallpaper/2019-11-20/5dd4e729667f7.jpg" alt=""></li>
+            <li><img src="https://wallpaperm.cmcm.com/09b202f43e015b94a0e4f82d3743ff3a.jpg" alt=""></li>
+            <li><img src="https://i0.hdslb.com/bfs/article/6ff9499f0755868715cf21f20d6aa9d0d268405b.jpg" alt=""></li>  
+        </ul>
+
+        <script>
+            //事件源
+            var imgs = document.getElementsByTagName('img');
+            var body = document.body;
+            //遍历这个imgs 伪数组
+            for(var i =0; i<imgs.length; i++){
+                imgs[i].onclick = function(){ //获得每一个图片事件源
+
+                   //this.src 获得的是指定图片的路径  
+                  body.style.backgroundImage = 'url('+this.src+')';
+                }
+            }
+        </script>
+    </div>
+</body>
+
+</html>

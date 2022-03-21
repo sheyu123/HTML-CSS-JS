@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        input {
+            outline: none;
+        }
+
+        #s {
+            width: 15px;
+            height: 15px;
+            display: inline-block;
+            cursor: pointer;
+            font-family: 'icomoon';
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span>账号:</span>
+        <input type="text" name="" id="">
+    </div>
+    <div class="c2">
+        <span>密码:</span>
+        <input type="password" name="" id="demo">
+        <i id="s"></i>
+    </div>
+    <script>
+        //事件源
+        var i = document.getElementById('s');
+        var input = document.getElementById('demo');
+        //事件类型
+        var flag = 0; //定义一个变量用于判断
+        //点击事件
+        i.onclick = function () {
+
+            if (flag == 0) {
+                input.type = 'text';
+                flag = 1;
+                i.innerHTML = ''; //睁眼
+            } else {
+                input.type = 'password';
+                flag = 0;
+                i.innerHTML = ''; //闭眼
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>

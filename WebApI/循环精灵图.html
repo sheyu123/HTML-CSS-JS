@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../HTML+CSS/HTML+CSS品优购项目/CSS/base.css">
+    <style>
+        
+       
+        div{
+            width: 250px;
+            height: 209px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        div ul{
+            width: 269px; 
+        }
+        .ds li{
+            
+            list-style-type: none;
+            width: 62px;
+            height: 71px;
+            float: left;
+            border-bottom: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+            text-align: center;
+        }
+
+        .dd{
+            width: 25px;
+            height: 25px;
+            display: inline-block;
+            margin-top:22px;
+            background: url('./img/1.png') no-repeat -1px -44px;
+        }
+    </style>
+</head>
+<body>
+    <div >
+        <ul class="ds clearfix">
+            <li>
+                <i class="dd"></i>
+            </li>
+            <li>
+                <i class="dd"></i>
+            </li>
+            <li>
+                <i class="dd"></i>
+            </li>
+            <li>
+                <i class="dd"></i>
+            </li>
+            <li>
+                <i class="dd"></i>
+            </li>
+            <li>
+                <i class="dd"></i>
+            </li>
+            <li>
+                <i class="dd"></i>
+            </li>
+            <li>
+                <i class="dd"></i>
+            </li>
+            <li>
+                <i class="dd"></i>
+            </li>
+            <li>
+                <i class="dd"></i>
+            </li>
+            <li>
+                <i class="dd"></i>
+            </li>
+            <li>
+                <i class="dd"></i>
+            </li>    
+        </ul>
+    </div>
+    <script>
+         //获取事件源
+         var list = document.querySelectorAll('i');
+         // 遍历
+         for(var i=0 ; i<list.length ;i++){
+            list[i].style.backgroundPosition = '0 -'+i*44+'px';
+         }
+    </script>
+       
+        
+</body>
+</html>

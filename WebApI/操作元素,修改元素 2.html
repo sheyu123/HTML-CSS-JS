@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       img{
+           width: 500px;
+           height: 500px;
+           border: 1px dotted red;
+       }
+    </style>    
+</head>
+<body>
+        <button>刘德华</button>
+        <button id="zxy">张学友</button>
+        <img src="https://p1.ssl.qhimg.com/dr/705_705_/t01bbff851fb08a4239.png" alt="">
+    <script>
+        //事件源
+        var btn1 = document.querySelector('button');//获得第一个button
+        var btn2 = document.getElementById('zxy');//获得第二个button
+        var img1 = document.querySelector('img'); //获得img标签
+
+        //事件类型 onclick
+        btn2.onclick = function(){
+            img1.src = 'https://p1.ssl.qhimg.com/dr/705_705_/t01fdcad4e76f887b4d.png';
+        }
+        btn1.onclick = function(){
+            img1.src = 'https://p1.ssl.qhimg.com/dr/705_705_/t01bbff851fb08a4239.png';
+        }
+    </script>
+</body>
+</html>

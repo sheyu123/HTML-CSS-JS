@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
+    <script>
+        //父节点
+        var ul = document.querySelector('ul');
+        //获得ul 的父节点(得到是离元素最近的父节点，找不到返回为null)
+        var div = ul.parentNode;
+        
+        //子节点
+        var ul1 = div.childNodes;
+        console.log(ul1); //[text, ul, text] 元素节点为(ul1[1].nodeType)1，属性节点为2，文本节点为3 
+       /*  for(var i = 0; i<ul1.length ; i++){
+            if(ul1[i].nodeType == 1){
+                console.log(ul1[i]+'是元素节点');
+            }
+        } */
+
+        console.log('-------------------------------------------');
+        var ul2 = div.children; //获得所有子元素节点
+        console.log(ul2);//[ul, ul]
+
+        var firstli = ul.firstElementChild; //获得第一个子元素（有兼容性问题）
+        console.log(firstli);
+
+        var lastli = ul.lastElementChild; //获得最后一个子元素有（有兼容性问题）
+        console.log(lastli);
+
+    </script>
+</body>
+</html>

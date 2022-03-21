@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 50px;
+            height: 50px;
+            background-color: aqua;
+            position: absolute;
+            left: 0;
+        }
+        span{
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            background-color: blue;
+            position: absolute;
+            left: 0;
+            top: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <span>点我运动</span>
+    <script>
+        //动画原理：出入两个形参（目标对象，目标位置），利用定时器让目标对象的offsetLeft 不断增加，到达目标位置后清除定时器
+        var box = document.querySelector('.box');
+        var span = document.querySelector('span');
+      
+        function animation(obj, target) {
+            clearInterval(obj.timer); //进入方法前先清除所有定时器（类似排他思想）
+
+            //obb.timer 相当于 对象.属性名 var num = {} ; num.name = '好运来';
+            obj.timer =  setInterval(function () { //每50毫秒移动一次
+
+                //当offsetLeft大于 300 时清除定时器
+                if (obj.offsetLeft >= target) {
+                    clearInterval(obj.timer);
+                } else {
+                    obj.style.left = obj.offsetLeft + 1 + 'px';
+                }
+            }, 50)
+        }
+        //调用动画方法
+        animation(box,200);
+
+        //点击事件
+        span.addEventListener('click',function(){
+            //调用动画方法
+            animation(span,300);
+        });
+
+    </script>
+</body>
+
+</html>

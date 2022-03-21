@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../HTML+CSS/HTML+CSS品优购项目/CSS/base.css">
+    <script src="./js/annimate.js"></script>
+    <style>
+        body{
+            background-color: #000;
+        }
+        .box{
+            width: 800px;
+            margin: 50px auto;
+            position: relative;
+        }
+        ul{
+            background-color: #fff;
+        }
+        ul li{
+            float: left;
+            width: 80px;
+            height: 50px;
+            background-color: aqua;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .color{
+            width: 30px;
+            height: 30px;
+            background-color: yellow;
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" >
+        <div class="color"></div>
+        <ul class="clearfix">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        var ul = document.querySelector('ul');
+        var color = document.querySelector('.color');
+        var num = 0; //计数器
+
+        for(var i = 0 ; i < ul.children.length ; i++){
+           
+            //给所有点击事件添加移入事件
+            ul.children[i].addEventListener('mouseenter',function(){
+                
+                animation(color, this.offsetLeft)
+            });
+            //给所有点击事件添加移出事件
+            ul.children[i].addEventListener('mouseleave',function(){
+               
+                animation(color, num)
+            });
+
+            ul.children[i].addEventListener('click',function(){
+                //点击后把当前的offsetLeft 赋值给 计数器
+                num = this.offsetLeft;
+                animation(color, num )
+            })
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>知否知否,应是红肥绿瘦1</li>
+        <li>知否知否,应是红肥绿瘦2</li>
+        <li>知否知否,应是红肥绿瘦3</li>
+        <li>知否知否,应是红肥绿瘦4</li>
+        <li>知否知否,应是红肥绿瘦5</li>
+    </ul>
+
+    <ol id = 'ds'>
+        <li>生僻字1</li>
+        <li>生僻字2</li>
+        <li>生僻字3</li>
+    </ol>
+
+    <script>
+        var str = document.getElementsByTagName('li');
+        console.log(str); //[li, li, li, li, li] 返回的是一个元素对象集合的伪数组 (获取的是整个页面的li)
+        //我们可以通过遍历的方式获取里面的元素对象
+        for(var i = 0 ; i < str.length ; i++){
+            console.log(str[i]);
+        }
+
+        // 如果页面只有一个li ，返回的依旧是伪数组形式
+        // 如果页面没有li ，返回的依旧是空的伪数组形式
+
+        //根据标签名获取获取指定父元素里面的指定子元素
+        //element.getElementsByTagName('标签名')
+        //方法一：
+       /*  var lists = document.getElementsByTagName('ol');//获取父元素 ol ，返回的是一个[ol]的伪数组
+        var str = lists[0].getElementsByTagName('li');
+        console.log(str);*/
+
+        //方法二
+        //给指定的父元素一个id ,通过getElementsById获取到指定父元素，然后通过getElementsByName 获取指定的 li
+        var list = document.getElementById('ds');
+        var sts = list.getElementsByTagName('li');
+        console.log(sts); // console.dir(sts)
+    </script>
+
+</body>
+
+</html>

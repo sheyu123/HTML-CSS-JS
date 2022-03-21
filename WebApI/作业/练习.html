@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 500px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        thead th {
+            height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th><input type="checkbox" class="hipt"></th>
+                <th>商品1</th>
+                <th>商品2</th>
+                <th>商品3</th>
+            </tr>
+        </thead>
+        <tbody class="bipt">
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>iphone11</td>
+                <td>iphone12</td>
+                <td>iphone13</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>￥10000</td>
+                <td>￥20000</td>
+                <td>￥30000</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>￥10000</td>
+                <td>￥20000</td>
+                <td>￥30000</td>
+            </tr>
+        </tbody>
+
+        <script>
+            //全选（其他按钮也选上）
+            var hipt = document.querySelector('.hipt');
+            var bipt = document.querySelector('.bipt').querySelectorAll('input');
+
+            hipt.onclick = function () {
+                //获得下面单选按钮
+                for (var i = 0; i < bipt.length; i++) {
+                    //将全选是否选中的属性赋值给每一个单选按钮
+                    bipt[i].checked = hipt.checked;
+                }
+            }
+
+            //当所有单选按钮选上时，需要全选按钮选上
+            for (var j = 0; j < bipt.length; j++) {
+                bipt[j].onclick = function () { //给每一个单选按钮添加点击事件
+                    var flag = true; //定义一个变量
+                    for (var j = 0 ; j<bipt.length; j++) { //循环每一个单选按钮，查看是否被选中
+                        if (!bipt[j].checked) { //未选中状态
+                            flag = false;
+                            break;
+                        }
+                    } hipt.checked = flag; //将flag 的结果赋值给全选按钮
+
+                }
+            }
+        </script>
+    </table>
+</body>
+
+</html>

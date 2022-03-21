@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 样式重置样式 -->
+    <link rel="stylesheet" href="../../HTML+CSS/HTML+CSS品优购项目/CSS/base.css">
+    <!-- 图标样式 -->
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .head {
+            width: 500px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        em {
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-family: 'icomoon';
+            cursor: pointer;
+        }
+        img{
+            width: 200px;
+            height: 200px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 京东广告关闭 -->
+    <div class="head">
+        <em></em>
+        <img src="https://img.tukuppt.com//png_preview/00/08/56/69BoZX9vFn.jpg!/fw/780" alt="" class="imgs">
+    </div>
+
+    <script>
+        //事件源
+        var btn = document.querySelector('em');
+        var head = document.querySelector('.head');
+        //事件类型
+        btn.onclick = function(){
+            head.style.display = 'none';
+        }
+    </script>
+
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../HTML+CSS/HTML+CSS品优购项目/CSS/base.css">
+    <style>
+        .head {
+            width: 1800px;
+            height: 300px;
+            background-color: aqua;
+        }
+
+        .body {
+            width: 1800px;
+            height: 700px;
+            background-color: red;
+        }
+
+        .footer {
+            width: 1800px;
+            height: 300px;
+            background-color: darkgreen;
+        }
+
+        /* 侧边栏 */
+        .fiex {
+            width: 50px;
+            height: 200px;
+            background-color: blueviolet;
+            position: absolute;
+            left: 1800px;
+            top: 400px;
+        }
+
+        .fiex2 {
+            display: none;
+            color: aliceblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="head">head</div>
+    <div class="body">body</div>
+    <div class="footer">footer</div>
+    <!-- 侧边栏 -->
+    <div class="fiex">
+        <span class="fiex2">返回顶部</span>
+    </div>
+    <script>
+        //固定侧边栏（现有绝对定位固定位置，当页面滑动到一定位置改为固定定位）
+        var head = document.querySelector('.head');
+        var body = document.querySelector('.body');
+        var fiex = document.querySelector('.fiex');
+        var fiex2 = document.querySelector('.fiex2');
+        var span = fiex.querySelector('.fiex2');
+
+        var bodyTop = body.offsetTop;//body上边框距离顶部的距离，或者写成 head.offsetHeight（直接拿head 的高度）
+        var fiexx = fiex.offsetTop - bodyTop;
+        //注册事件（页面滑动事件） 
+        document.addEventListener('scroll', function () {
+            //获得页面被卷去的距离
+            if (window.pageYOffset >= bodyTop) {
+                fiex.style.position = 'fixed';
+                fiex.style.top = fiexx + 'px';
+                fiex2.style.display = 'block';
+                //小于这个值时恢复绝对定位
+            } else {
+                fiex.style.position = 'absolute';
+                fiex.style.top = '400px';
+                fiex2.style.display = 'none';
+            }
+
+        })
+
+        //给返回按钮添加点击事件
+        span.addEventListener('click',function(){
+            animation(window,0)
+        });
+
+        function animation(obj, target, callblack) { //callbakc (传入的回调函数)
+
+            clearInterval(obj.timer); //进入方法前先清除所有定时器（类似排他思想）
+
+            //obb.timer 相当于 对象.属性名 var num = {} ; num.name = '好运来';
+            obj.timer = setInterval(function () { //每50毫秒移动一次
+
+                //var  setTime = Math.ceil((target - obj.offsetLeft)/10); //每次都需要获得obj.offsetLeft的值，所以需要写在里面 (目标位置 - 现在的位置) / 任意数
+                var setTime = (target - window.pageYOffset) / 10;
+                setTime = setTime > 0 ? Math.ceil(setTime) : Math.floor(setTime); //需要向上或向下取整
+
+                //当offsetLeft大于 target 时清除定时器
+                if (window.pageYOffset == target) {
+                    clearInterval(obj.timer);
+
+                    //回调函数需要在清除定时器后使用
+                    if (callblack) {   //判断是否有回调函数传入
+                        callblack();
+                    }
+
+                    //另一种书写方式 callback && callback();
+                } else {
+                    //obj.style.left = obj.offsetLeft + setTime + 'px'; //赋值给left
+                    window.scroll(0, window.pageYOffset + setTime);
+                }
+            }, 15)
+        }
+
+    </script>
+</body>
+
+</html>

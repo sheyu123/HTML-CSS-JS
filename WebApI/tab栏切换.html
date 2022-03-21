@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../HTML+CSS/HTML+CSS品优购项目/CSS/base.css">
+    <style>
+        .red {
+            background-color: red;
+            color: #fff;
+        }
+
+        body {
+            width: 600px;
+            margin: 50px auto;
+        }
+
+        .tab_list ul li {
+            float: left;
+            padding: 0 10px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            height: 30px;
+            line-height: 30px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .em {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tab_list clearfix">
+        <ul>
+            <li class="red">商品介绍1</li>
+            <li>商品介绍2</li>
+            <li>商品介绍3</li>
+            <li>商品介绍4</li>
+            <li>商品介绍5</li>
+        </ul>
+    </div>
+    <div class="tab_footer">
+        <div class="em" style="display: block;">页面1</div>
+        <div class="em">页面2</div>
+        <div class="em">页面3</div>
+        <div class="em">页面4</div>
+        <div class="em">页面5</div>
+    </div>
+
+    <script>
+        //点击某一个导航栏，给这个导航栏增加样式，并显示对应的内容
+        //事件源
+        var shops = document.querySelector('.tab_list').querySelectorAll('li'); //商品介绍
+        var em = document.querySelector('.tab_footer').querySelectorAll('div') //页面
+    
+        // 遍历
+        for (var i = 0; i < shops.length; i++) {
+            //设置自定义属性
+            shops[i].setAttribute('index',i)
+            //给每个li 添加一个点击事件
+            shops[i].onclick = function () { 
+                //先清空其他导航栏样式
+                for (var i = 0; i < shops.length; i++) {
+                    shops[i].className = '';
+                }
+                this.className = 'red';
+
+                //获得每个点击的索引号
+              var index = this.getAttribute('index');
+
+              for(var i = 0 ; i < em.length ; i++){
+                em[i].style.display = 'none'
+              }
+              em[index].style.display = 'block';
+            }
+
+
+        }
+
+
+    </script>
+</body>
+
+</html>

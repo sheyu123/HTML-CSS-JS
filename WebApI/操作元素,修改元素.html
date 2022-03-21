@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span{
+            display: block;
+            width: 350px;
+            height: 150px;
+            background-color: aqua;
+        }
+
+        div{
+            width: 150px;height: 50px;background-color: yellow;
+        }
+    </style>    
+</head>
+<body>
+    <button>显示时间</button>
+    <p>1</p>
+    <span id="dds">13</span>
+
+    <div>
+        你好
+        <a>111</a>
+    </div>
+
+    <script>
+        //innnerText 和 innerHRML的qubie 的区别
+        //innerText 无法识别html标签，不保留空格和换行
+        //innerHTML 识别html标签，保留空格和换行
+
+        var div = document.querySelector('div');
+       // div.innerText = '<strong>12</strong>3'; //<strong>12</strong>3
+        // console.log(div.innerText);
+
+        var div = document.querySelector('div');
+        div.innerHTML = '<strong>4</strong>56'; //456 (4 会被加粗)
+        console.log(div.innerHTML);
+
+        
+        //获取事件源
+        var btn = document.querySelector('button');
+        var p = document.querySelector('p');
+        
+
+        //事件类型 onclick
+        //事件处理程序 (点击按钮显示时间)
+        btn.onclick = function(){
+             p.innerText = getTimes();
+        }
+
+        var span = document.querySelector('span');
+        span.innerHTML = getTimes();
+
+
+        //获取当前年月日星期几 时间
+        
+        function getTimes(){
+            // var  t = window.setTimeout(getTimes(),1000); 每隔1秒钟调用一次这个方法
+            var timer = new Date();
+
+            //获取年
+            var y = timer.getFullYear();
+
+            //获取月 (月份比实际月份少1) 0~11
+            var m1 = timer.getMonth()+1;
+
+            //获取日 
+            var d = timer.getDate();
+            
+            //星期几(0~6)
+            //定义一个数组存入星期日到星期一
+            var days = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六',]
+            var day = timer.getDay();
+            
+            //小时
+            var h = timer.getHours();
+            h = h < 10 ? '0'+h : h;
+            //分钟
+            var m = timer.getMinutes();
+            m = m < 10 ? '0'+m : m;
+            //秒
+            var s = timer.getSeconds();
+            s = s < 10 ? '0'+s : s;
+
+            //返回年月日 星期几 时间
+            return  y+'年'+m1+'月'+d+'日'+ days[day]+h + '时'+m+'分'+s+'秒'           
+
+        }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>点击</button>
+    <div>123</div>
+    
+    <script>
+        //window加载完毕后执行这段代码（页面一样会重绘）
+        window.onload = function(){
+            document.write("<p>123</p>");
+        }
+
+        //页面重绘
+        //document.write("<p>123</p>") //当页面不加载时使用不会有影响
+
+        /* var button = document.querySelector('button');
+        //按钮添加点击事件
+        button.onclick = function(){
+            document.write("<p>123</p>") //加载后会导致页面重绘
+        } */
+    </script>
+</body>
+</html>

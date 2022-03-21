@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            background-color: blue;
+            position: absolute;
+            left: 0;
+            top: 80px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <button class="btn">回到起点</button>
+    <button class="btn1">点我运动500</button>
+    <button class="btn2">点我运动800</button>
+    <span></span>
+    <script>
+        //缓动动画原理：出入两个形参（目标对象，目标位置），利用定时器让目标对象的offsetLeft 不断增加，到达目标位置后清除定时器
+        //缓动动画（给一个不断衰减的值）(目标位置 - 现在的位置) / 任意数
+        var btn = document.querySelector('.btn');
+        var btn1 = document.querySelector('.btn1');
+        var btn2 = document.querySelector('.btn2');
+        var span = document.querySelector('span');
+
+        function animation(obj, target, callblack) { //callbakc (传入的回调函数)
+
+            clearInterval(obj.timer); //进入方法前先清除所有定时器（类似排他思想）
+
+            //obb.timer 相当于 对象.属性名 var num = {} ; num.name = '好运来';
+            obj.timer = setInterval(function () { //每50毫秒移动一次
+
+                //var  setTime = Math.ceil((target - obj.offsetLeft)/10); //每次都需要获得obj.offsetLeft的值，所以需要写在里面 (目标位置 - 现在的位置) / 任意数
+                var setTime = (target - obj.offsetLeft) / 10;
+                console.log(setTime);
+                setTime = setTime > 0 ? Math.ceil(setTime) : Math.floor(setTime); //需要向上或向下取整
+
+                //当offsetLeft大于 target 时清除定时器
+                if (obj.offsetLeft == target) {
+                    clearInterval(obj.timer);
+
+                    //回调函数需要在清除定时器后使用
+                    if (callblack) {   //判断是否有回调函数传入
+                        callblack();
+                    }
+
+                } else {
+                    obj.style.left = obj.offsetLeft + setTime + 'px'; //赋值给left
+                    //排他样式
+                    span.style.transition = '';
+                }
+            }, 15)
+        }
+
+        //点击事件
+        btn.addEventListener('click', function () {
+            
+            //调用动画方法
+            animation(span, 0);
+
+        });
+        btn1.addEventListener('click', function () {
+            
+            //调用动画方法
+            animation(span, 500);
+        });
+        //移动800
+        btn2.addEventListener('click', function () {
+            //调用动画方法
+            animation(span, 800, function () {
+                span.style.backgroundColor = 'red';
+                span.style.transition = 'all,1.5s'
+            });
+        });
+
+    </script>
+</body>
+
+</html>

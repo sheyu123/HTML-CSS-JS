@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input,button{
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <input type="text">
+    <button class="set">存储数据</button>
+    <button class="get">获取数据</button>
+    <button class="remove">删除数据</button>
+    <button class="del">清空数据</button>
+    <script>
+        //获取数据源
+        var ipt = document.querySelector('input');
+        var btn1 = document.querySelector('.set');
+        var btn2 = document.querySelector('.get');
+        var btn3 = document.querySelector('.remove');
+        var btn4 = document.querySelector('.del');
+
+        // console.log(localStorage.getItem('uname'));
+        //存储数据
+       btn1.addEventListener('click',function(){
+           var name = ipt.value;
+           sessionStorage.setItem('uname',name);
+        //    sessionStorage.setItem('pink',name);
+       });
+
+       //获取数据
+       btn2.addEventListener('click',function(){
+           var name = sessionStorage.getItem('uname');
+           console.log(name);
+       });
+       //删除数据
+       btn3.addEventListener('click',function(){
+           sessionStorage.removeItem('uname')
+       });
+       //获取数据
+       btn4.addEventListener('click',function(){
+           sessionStorage.clear();
+       });
+    </script>
+</body>
+</html>

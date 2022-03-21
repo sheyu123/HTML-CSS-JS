@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../HTML+CSS/HTML+CSS品优购项目/CSS/base.css">
+    <!-- 引入js -->
+    <script src="./js/轮播图.js"></script>
+    <script src = './js/annimate.js'></script>
+    <title>Document</title>
+    <style>
+        .box {
+            width: 504px;
+            height: 300px;
+            background-color: aqua;
+            margin: 50px auto;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .box ul{
+            width: 520%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .box ul li{
+            float: left;
+        }
+        .box ul li img{
+            width: 504px;
+            height: 300px;
+            z-index: 99;
+        }
+
+        /* 左右按钮 */
+        .lefts, .rights{
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            top: 155px;
+            font-size: 15px;
+            font-weight: 800;
+            color: #000;
+            cursor: pointer;
+            text-align: center;
+            background-color: #fff;
+            opacity: 0.5;
+            display: none;
+        }
+
+        .lefts{
+            left: 0;
+        }
+
+        .rights{
+            right: 0;
+        }
+
+        .ols{
+            position:absolute;
+            top: 276px;
+            left: 20px;
+        }
+
+        
+        .ols li{
+            float: left;
+            width: 8px;
+            height: 8px;
+            border: 1px solid #fff;
+            background-color: #ccc;
+            border-radius: 50px;
+            margin-right: 4px;
+            cursor: pointer;
+        }
+
+        /* 小圆点背景 */
+        .ols .black{
+            background-color: yellow;
+        }
+       
+    </style>
+</head>
+
+<body>
+    <div class="box clearfix">
+
+        <!-- 主体轮播图片 -->
+        <ul class="clearfix">
+            <li><img src="./img/cs1.jpg" alt=""></li>
+            <li><img src="./img/cs2.jpg" alt=""></li>
+            <li><img src="./img/cs3.jpg" alt=""></li>
+            <li><img src="./img/cs4.jpg" alt=""></li>
+        </ul>
+        <!-- 左右按钮 -->
+        <div class="lefts"> < </div>  
+        <div class="rights"> > </div>
+        <!-- 小圆点 -->
+        <div >
+            <ol class="ols">
+               <!--  <li class="black"></li>
+                <li></li>
+                <li></li> -->
+            </ol>
+        </div>
+    </div>
+
+   
+</body>
+
+</html>

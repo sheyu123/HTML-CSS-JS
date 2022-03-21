@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <img src="http://dingyue.ws.126.net/2021/1215/933ba3a7g00r446xl01jed200dw00dwg00fi00fi.gif" alt=""> 
+    <div>上午好</div>
+
+    <script>
+        //事件源
+        var imgs = document.querySelector('img');
+        var divs = document.querySelector('div');
+        // 获取时间
+        var dates = new Date();
+        
+        var h = dates.getHours(); //获得小时
+
+        //事件类型 处理程序
+        if(h<12){
+            imgs.src = 'https://p1.ssl.qhimgs1.com/sdr/400__/t014f5b381b8c561bd7.gif';
+            divs.innerHTML = '早上好,最帅的你';
+        }else if(h<18){
+            imgs.src = 'http://dingyue.ws.126.net/2021/1112/20e2d663g00r2goaw001qd2006o006og006o006o.gif';
+            divs.innerHTML = '中午好,好好学习';
+        }else{
+            imgs.src = 'http://5b0988e595225.cdn.sohucs.com/images/20171116/090dc208971b433ab8c7fb5c509b9a57.gif';
+            divs.innerHTML = '晚上好,好好休息';
+        }
+        
+    </script>
+</body>
+</html>

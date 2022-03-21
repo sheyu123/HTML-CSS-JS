@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 样式重置样式 -->
+    <link rel="stylesheet" href="../../HTML+CSS/HTML+CSS品优购项目/CSS/base.css">
+    <!-- 图标样式 -->
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .dds{
+            width: 74px;
+            border: 1px solid #ccc;
+            margin-left: 100px;
+            text-align: center;
+            font-family: 'icomoon';
+        }
+       .wb{
+         
+           font-family: 'icomoon';
+       }
+       .ddss a{
+           width: 74px;
+           display: inline-block;
+           border-top: 1px solid #ccc;
+           border-bottom: 1px solid #ccc;
+       }
+       ul{
+           display: none;
+       }
+    </style>
+</head>
+
+<body>
+    <!-- 下拉菜单-->
+    <div class="head">
+        <div class="dds">微博
+            <ul class="ddss">
+                <li class="wb"><a href="" class="wba">微博</a></li>
+                <li class="yc"><a href="" >微博</a></li>
+                <li class="yc"><a href="" >微博</a></li>
+            </ul>
+        </div>
+      
+    </div>
+
+    <script>
+        //事件源
+        var dds = document.querySelector('.dds');
+        var ddss = document.querySelector('.ddss')
+        //事件类型
+        dds.onmouseover  = function(){
+            ddss.style.display = 'block'
+       }
+        dds.onmouseout  = function(){
+            ddss.style.display = 'none'
+       }
+    </script>
+
+
+    </div>
+
+</body>
+
+</html>

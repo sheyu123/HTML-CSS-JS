@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../HTML+CSS/HTML+CSS品优购项目/CSS/base.css">
+    <link rel="stylesheet" href="../WebApI/css/style.css">
+    <style>
+        div{
+            width: 500px;
+            margin: 50px auto;
+            
+        }
+
+        .ems{
+            font-family: 'icomoon';
+            color: blue;
+        }
+
+        .emsColor{
+            color: green;
+        }
+        .emsColors{
+            color: red;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="text" class="inp">
+        <em class="ems"> 请输入6~16的数字</em>
+    </div>
+    <script>
+        //事件源
+        var inp = document.querySelector('.inp');
+        var ems = document.querySelector('.ems');
+
+        //事件类型
+        inp.onblur = function(){ 
+            if(inp.value.length < 6 || inp.value.length >16){ //判断input的长度是否小于6位数或者大于16位数
+                //满足条件
+                ems.innerHTML = ' 您输入的数字有误,请输入6~16的数字';
+                ems.className = 'emsColors ems' //将文字改为红色  等同于 ems.style.color = 'red'
+            }else{
+                ems.innerHTML = ' 您输入的数字正确';
+                ems.className = 'emsColor ems' //将文字改为绿色 等同于 ems.style.color = 'green'
+            }
+        }
+    </script>
+</body>
+
+</html>

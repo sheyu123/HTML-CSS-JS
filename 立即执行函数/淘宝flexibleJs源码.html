@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>我是可爱的小心</div>
+    <a href="https://www.huya.com/  ">百度</a>
+    <script>
+        (function(window,document){
+            //获得根元素Html
+            var docEl = document.documentElement;
+            // 设置浏览器的像素比 ，没有默认设置为1
+            var dpr = window.devicePixelRatio || 1 
+
+            //判断是否有body元素
+            function setBodyfontsize(){
+                if(document.body){ //如果body 元素存在就设置他的字体大小
+                    document.body.style.fontSize = (12 * dpr) + 'px' //兼容设置字体大小
+                }else{
+                    document.addEventListener('DOMContentLoaded',setBodyfontsize); // 等 DOM文档模型 加载完成后触发
+                }
+            }
+            setBodyfontsize();
+
+            //设置HTML 字体大小
+            function setRemUnit(){
+                var rem = docEl.clientWidth / 10;
+                docEl.style.fontSize = rem + 'px';
+            }
+            setRemUnit();
+
+            //当页面大小发生变化时，需要重新计算一下文字大小
+            window.addEventListener('resize',setRemUnit); //窗口发生变化，重新计算一下文字大小
+            window.addEventListener('pageshow',function(e){
+                //e.persisted 返回true 说明这个页面是从缓存页面取过来的，也需要重新计算一下rem的大小
+                    if(e.persisted){
+                        setRemUnit();
+                    }
+            })
+
+        })(window,document)
+    </script>
+</body>
+</html>

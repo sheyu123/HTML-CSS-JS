@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 样式重置样式 -->
+    <link rel="stylesheet" href="../HTML+CSS/HTML+CSS品优购项目/CSS/base.css">
+    <!-- 图标样式 -->
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        body {
+            width: 500px;
+            margin: 50px auto;
+        }
+
+        button {
+            margin-right: 20px;
+            /* background-color: none; */
+        }
+    </style>
+</head>
+
+<body>
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+    <button>按钮4</button>
+    <button>按钮5</button>
+
+
+    <script>
+        //当需要给多个重复的元素设置相同的样式时，可以使用for循环
+        //获得事件源
+        var btn = document.getElementsByTagName('button'); //获得一个元素的集合，以伪数组的形式返回
+
+        //事件类型
+        for (var i = 0; i < btn.length; i++) {
+            btn[i].onclick = function () {
+                //先去除所有按钮的颜色，然后再给点击的按钮赋值
+                for (var i = 0; i < btn.length; i++) {
+                    btn[i].style.backgroundColor = '';
+                }
+                this.style.backgroundColor = 'fuchsia';
+            }
+        }
+        // 排他思想：先清除所有样式，然后给你想要的样式赋值
+    </script>
+</body>
+
+</html>

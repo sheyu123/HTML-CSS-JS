@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bg{
+            background-color: #000;
+        }
+
+      
+    </style>
+</head>
+<body>
+    <button class="one">开关灯</button>
+    <script>
+        //classList 是在后面追加类名 ，不会删除之前的类名（与className 不同）
+        var button = document.querySelector('button');
+        button.classList.add('font'); //添加类名
+        button.classList.remove('one');
+      
+        button.addEventListener('click',function(){
+          document.body.classList.toggle('bg'); //切换类（没有就添加，如果有就删除）
+        });
+    </script>
+</body>
+</html>

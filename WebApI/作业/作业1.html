@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 图标样式 -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- 样式重置样式 -->
+    <link rel="stylesheet" href="../../HTML+CSS/HTML+CSS品优购项目/CSS/base.css">
+    <style>
+        .head {
+            width: 500px;
+            margin: 0 auto;
+        }
+
+        .ds{
+            position: relative;
+        }
+
+        .icon {
+            font-family: 'icomoon';
+            cursor: pointer;
+            display: inline-block;
+            position: absolute;
+            top: 3px;
+            left: 171px;
+        }
+
+        .las{
+            font-family: 'icomoon';
+            vertical-align:middle;
+           
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 用户名密码显示和隐藏效果 -->
+    <div class="head">
+        <div>
+            <em>账号:</em>
+            <input type="text">
+        </div>
+        <div class="ds">
+            <em>密码:</em>
+            <input type="password" class="inp">
+            <i class="icon"></i>
+            <label for="" class="las"> 请输入6~16的数字</label>
+        </div>
+        <script>
+            /* 密码的显示与隐藏判断 
+         获取事件源 */ 
+            var inps = document.querySelector('.inp');  //input框
+            var icons = document.querySelector('.icon'); 
+
+            //事件类型 onclick (点击后密码框变文本框)
+            //定义一个变量 
+            var flag = 0; //用于判断点击
+            icons.onclick = function () {
+                if (flag == 0) {
+                    inps.type = 'text';
+                    this.innerHTML = '';
+                    flag = 1;
+                }else{
+                    inps.type = 'password';
+                    this.innerHTML = '';
+                    flag = 0;
+                }
+            }
+
+            //表单位数验证
+            var labels = document.querySelector('.las');
+            inps.onblur = function(){
+                //判断value的长度是否符合要求
+                if(inps.value.length <6 || inps.value.length>16){
+                    labels.innerHTML = ' 您输入的数字有误,请输入6~16的数字';
+                    labels.style.color = 'red';
+                }else{
+                    labels.innerHTML = ' 您输入的数字正确';
+                    labels.style.color = 'green';
+                }   
+            }
+        </script>
+
+
+    </div>
+
+</body>
+
+</html>

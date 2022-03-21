@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 样式重置样式 -->
+    <link rel="stylesheet" href="../HTML+CSS/HTML+CSS品优购项目/CSS/base.css">
+    <!-- 图标样式 -->
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        table {
+            width: 200px;
+            margin: 50px auto;
+            text-align: center;
+            border-collapse: collapse;
+        }
+
+        table tr {
+            border: 1px solid #ccc;
+            height: 30px;
+        }
+
+        table th {
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    <input type="checkbox" class="th_inpt">
+                </th>
+                <th>商品</th>
+                <th>价钱</th>
+            </tr>
+        </thead>
+        <tbody class="tb_input">
+            <tr>
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td>iPhone3</td>
+                <td>8000</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" >
+                </td>
+                <td>iPhone3</td>
+                <td>8000</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" >
+                </td>
+                <td>iPhone3</td>
+                <td>8000</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        //事件源
+        var thinput = document.querySelector('.th_inpt'); //获得全选按钮
+        var tb_input = document.querySelector('.tb_input').querySelectorAll('input');
+
+
+        //事件类型
+        thinput.onclick = function () {
+            //this.checked 可以得到当前复选框选中的状态 ，如果是true ，将其他复选框也赋值true, 反之则给false
+            for(var i=0; i<tb_input.length; i++){
+                tb_input[i].checked = this.checked; 
+            }
+        }
+
+        //用下面复选按钮来影响第一个全选按钮
+        for(var i=0 ;i<tb_input.length; i++){
+            //给下面三个按钮绑定点击事件
+            tb_input[i].onclick = function(){
+                var flag = true; //定义变量用于赋值
+
+                //判断其他按钮框是否被选中
+                for(var j = 0 ;j<tb_input.length ; j++){
+                    //当其他按钮没有被选中时，全选按钮不要选
+                    if(!tb_input[j].checked){
+                        flag = false;
+                        break;
+                    } 
+                }
+                thinput.checked = flag;
+            }
+        }
+
+    </script>
+</body>
+
+</html>

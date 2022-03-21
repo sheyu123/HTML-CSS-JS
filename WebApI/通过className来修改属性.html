@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 150px;
+            height: 150px;
+            background-color: aqua;
+        }
+
+        /* 我是定义的class,用来给js 的className属性来调用 */
+        .csp{
+            background-color: yellow;
+            margin-left: 100px;
+            font-size: 25px;
+            color: blue;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="bats">文本</div>
+
+    <script>
+        //修改div的样式
+        //当修改少量样式时，可通过 element.style 行内样式操作来修改
+        
+        var div = document.querySelector('div'); //事件源
+        div.onclick = function(){ //事件类型（鼠标点击）
+           /*  div.style.backgroundColor = 'red'; 
+            div.style.marginTop = '120px';
+            div.style.fontSize = '25px';
+            div.style.color = 'pink'; *///注意：这样写过于繁琐，可以使用element.className 来修改样式
+
+           /*  可以使用element.className 来修改样式
+            首先需要定义一个class 在css中书写样式，然后把这个class赋值给this.className
+        
+            this.className = 'csp'; */
+
+            // 当事件源 div 已经存在class 时，需要 className 重新赋值一次
+            this.className = 'bats csp';
+        }
+    </script>
+</body>
+
+</html>

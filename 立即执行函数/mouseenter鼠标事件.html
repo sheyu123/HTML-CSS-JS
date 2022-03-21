@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .fater{
+            width: 500px;
+            height: 500px;
+            background-color: darkcyan;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="fater">
+        fater
+        <div class="box">box</div>
+    </div>
+    <script>
+        //mouseover 鼠标移入事件
+        var fater = document.querySelector('.fater');
+        var box = document.querySelector('.box');
+    /*     fater.addEventListener('mouseover',function(){
+            alert('我是fater') //会有一个类似冒泡的效果（移入子盒子也会触发事件）
+        }); */
+
+        fater.addEventListener('mouseenter',function(){
+            alert('我是fater2') //移入子盒子不会触发
+        });
+    </script>
+</body>
+</html>

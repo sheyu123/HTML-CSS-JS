@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../HTML+CSS/HTML+CSS品优购项目/CSS/base.css">
+    <style>
+        body {
+            margin: 10px;
+        }
+
+        textarea {
+            outline: none;
+        }
+
+        ul {
+            width: 229px;
+        }
+
+        li a {
+
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 文本框 -->
+
+    <textarea name="" id="" cols="30" rows="10">13</textarea>
+    <button>发布</button>
+    <ul></ul>
+    <script>
+        //要求发布后消息在下面显示，并带有删除功能
+        //事件源
+        var button = document.querySelector('button'); //发布按钮
+        var textarea = document.querySelector('textarea'); //文本框
+        var ul = document.querySelector('ul'); //ul
+        //注册事件
+        button.onclick = function () { //发布点击事件
+            //判断文本框是否为空
+            if (textarea.value !== '') {
+                //创建元素li
+                var li = document.createElement('li');
+                //将textarea 内的内容赋值给 li
+                li.innerHTML = textarea.value + '<a href="javascript:;">删除</a>';
+                //给ul 添加元素 li
+                // ul.appendChild(li);
+                ul.insertBefore(li, ul.children[0]);
+                //发布完成后清空输入框内容
+                textarea.value = '';
+            }else{
+                alert('输入为空');
+                return false;
+            }
+            //删除点击事件
+            var as = document.querySelectorAll('a');
+            //循环绑定点击事件
+            for (var i = 0; i < as.length; i++) {
+                as[i].onclick = function () {  //需要删除点击的li标签 this.parentNode
+                    ul.removeChild(this.parentNode);
+                }
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>

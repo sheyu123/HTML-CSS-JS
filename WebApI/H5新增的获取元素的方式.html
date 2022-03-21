@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+<body>
+    <P class="box">1</P>
+    <P class="box">2</P>
+    <div id="bbc">
+        <ul>
+            <li>你好1</li>
+            <li>你好2</li>
+            <li>你好3</li>
+        </ul>
+    </div>
+    <script>
+        //页面从上往下加载，script需要写在下面
+
+        //根据类名获取元素集合
+        var c1 = document.getElementsByClassName('box');
+        console.log(c1); //[p.box, p.box]
+
+        //根据指定选择器返回第一个元素对象 (需要加选择器对应的符号，.box #bbc)
+        var c2 = document.querySelector('.box');
+        console.log(c2);//<p class="box">1</p>
+
+        var i1 = document.querySelector('#bbc');
+        console.log(i1); //获取第一个id 为#bbc的元素对象
+
+        var list = document.querySelector('li');
+        console.log(list); //获取第一个li
+
+        //返回指定选择器所有元素的集合
+        var cls = document.querySelectorAll('.box');
+        console.log(cls); //[p.box, p.box]
+
+        var list1 = document.querySelectorAll('li');
+        console.log(list1);//[li, li, li]
+
+      /*   var sps = document.getElementsByTagName('li');
+        console.log(sps); //[li, li, li] 返回一个数组元素的集合，以伪数组形式展现 */
+ 
+    </script>
+    
+</body>
+</html>

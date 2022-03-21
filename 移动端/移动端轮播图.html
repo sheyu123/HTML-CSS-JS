@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../HTML+CSS/HTML+CSS品优购项目/CSS/base.css">
+    <script src="./js/移动端轮播图.js"></script>
+    <style>
+        .foucs{
+            width: 380px;
+            height: 152px;
+            /* background-color: red; */
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .foucs ul {
+           position: absolute;
+           left: -380px;
+           width: 620%; 
+        }
+        .foucs ul li {
+            list-style: none;
+            float: left;
+
+        }
+        .foucs ul li img{
+            width: 380px;
+            height: 152px;
+        }
+        .foucs ol{
+            position: absolute;
+            top: 136px;
+            right: 7px;
+            z-index: 9999;
+        }
+
+        .foucs ol li {
+            float: left;
+            width: 8px;
+            height: 8px;
+            background-color: red;
+            margin-right: 5px;
+            transition: all .5s;
+        }
+
+        .foucs ol li.current{
+            width: 15px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="foucs">
+        <ul class="clearfix">
+            <li>
+                <img src="https://p5.ssl.qhimgs1.com/sdr/400__/t016219836f7c26ab65.jpg" alt="">
+            </li>
+            <li>
+                <img src="https://img.tuguaishou.com/ips_templ_preview/a0/91/1f/lg_2054134_1571559923_5dac19f3cb65a.jpg!w380_w?auth_key=2274278400-0-0-c81a39aebc373e501d5cb1b8afcf8f7d" alt="">
+            </li>
+            <li>
+                <img src="http://photo.16pic.com/00/48/44/16pic_4844647_b.jpg" alt="">
+            </li>
+            <li>
+                <img src="https://p5.ssl.qhimgs1.com/sdr/400__/t016219836f7c26ab65.jpg" alt="">
+            </li>
+            <li>
+                <img src="https://img.tuguaishou.com/ips_templ_preview/a0/91/1f/lg_2054134_1571559923_5dac19f3cb65a.jpg!w380_w?auth_key=2274278400-0-0-c81a39aebc373e501d5cb1b8afcf8f7d" alt="">
+            </li>
+        </ul>
+        <ol>
+            <li class="current"></li>
+            <li></li>
+            <li></li>
+        </ol>
+    </div>
+</body>
+</html>

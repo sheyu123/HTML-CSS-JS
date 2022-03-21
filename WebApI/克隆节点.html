@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+    </ul>
+    <script>
+        //克隆节点
+        var ul = document.querySelector('ul');
+        var li = ul.children[0].cloneNode(true);//不加true 浅拷贝，加了 true 深拷贝
+        ul.appendChild(li);
+
+      
+        ul.appendChild(document.createElement('a')) ; //创建并添加a标签
+        ul.insertBefore(ul.children[1].cloneNode(true),ul.children[0]) ; //克隆被添加li 标签 到最前面
+        ul.appendChild(ul.children[3].cloneNode(true));  //克隆被添加li 标签 到最后面
+
+        ul.removeChild(ul.children[4]); //删除a标签
+    </script>
+</body>
+</html>

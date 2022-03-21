@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../HTML+CSS/HTML+CSS品优购项目/CSS/base.css">
+    <style>
+        table {
+            width: 600px;
+            margin: 50px auto;
+            text-align: center;
+            border-collapse: collapse;
+        }
+
+        table th {
+           
+            font-size: 18px;
+        }
+
+        table tr {  
+            border-top: 1px solid #ccc;
+            border: 1px solid #ccc;
+        }
+
+        table td {
+            height: 30px;
+        }
+
+        table th,
+        td {
+            border-right: 1px solid #ccc;
+        }
+        
+       
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>科目</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
+
+    <script>
+        //1.将所有对象存储为对象放在数组中
+        var date = [{
+            name: '刘德华',
+            age: 20,
+            subject: 'javaScript',
+            score: 100
+        }, {
+            name: '张学友',
+            age: 20,
+            subject: 'javaScript',
+            score: 100
+        }, {
+            name: '黎明',
+            age: 20,
+            subject: 'javaScript',
+            score: 100
+        }, {
+            name: '郭富城',
+            age: 20,
+            subject: 'javaScript',
+            score: 100
+        },{
+            name: '王祖贤',
+            age: 20,
+            subject: 'javaScript',
+            score: 100
+        }]
+
+        //2.往tbody里面创建行
+        var tbody = document.querySelector('tbody');
+        for (var i = 0; i < date.length; i++) { //通过date的长度，循环添加tr
+            //创建tr
+            var tr = document.createElement('tr');
+            
+            //添加到tbody
+            tbody.appendChild(tr);
+
+            //遍历对象添加td
+            for (var k in date[i]) {
+                //创建td
+                var td = document.createElement('td');
+                // 将每个对象的属性值赋值给td
+                td.innerHTML = date[i][k] ;
+                //添加到tr
+                tr.appendChild(td);
+            }
+
+            //创建删除的单元格
+            var tr1 = document.createElement('td');
+            tr1.innerHTML = '<a href="javaScript:;">删除</a>'
+            tr.appendChild(tr1);
+
+            /* //为每个删除按钮添加点击事件
+            var a = document.querySelectorAll('a');
+            a[i].onclick = function(){ //删除的是tr (this.parentNode.parentNode)
+            //console.log(this.parentNode.parentNode);
+                tbody.removeChild(this.parentNode.parentNode);
+            }
+ */
+        }
+        //获得a的集合
+        var as = document.querySelectorAll('a');
+        
+        //为每个删除按钮添加点击事件
+        for(var i = 0 ; i < as.length ; i++){ //删除的是tr (this.parentNode.parentNode)
+            as[i].onclick = function(){
+                tbody.removeChild(this.parentNode.parentNode);
+            }
+        }
+
+       
+    </script>
+</body>
+
+</html>

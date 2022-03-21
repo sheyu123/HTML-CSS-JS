@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" class="ipt">
+    <button>登录</button>
+    <input type="checkbox" class="ipt2">记住用户名
+    <script>
+        //事件源
+        var ipt = document.querySelector('.ipt');
+        var button = document.querySelector('button');
+        var ipt2 = document.querySelector('.ipt2');//记住用户名
+
+        //打开页面时需要判断是否有这个用户名(通过localStorage.getItem 获取数据)
+        var getNames = localStorage.getItem('uname');
+        
+        button.addEventListener('click', function () {
+            //获得ipt 中的value值，
+            var dates = ipt.value;
+            //由于需要永久存储，所以需要用到loaclStorage
+            localStorage.setItem('uname', dates);
+
+        });
+
+        if (getNames) { //判断是否有用户登录，如果有，将该用户输入文本框
+                ipt.value = getNames;
+                ipt2.checked = 'checked';
+        }
+
+
+
+        //判断勾选框是否发生改变
+        ipt2.addEventListener('change', function () {
+            if (this.checked) {
+                localStorage.setItem('uname', getNames);
+            } else {
+                localStorage.removeItem('uname');
+            }
+        });
+    </script>
+</body>
+
+</html>

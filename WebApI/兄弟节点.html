@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <ul>
+            <li class="dd">1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
+    <script>
+        //兄弟节点
+        var li1 = document.querySelector('.dd');
+        var li2 = li1.nextElementSibling;//下一个兄弟节点(兼容性问题)
+        var li3 = li2.previousElementSibling;//上一个兄弟节点(兼容性问题)
+        console.log(li3);
+    </script>
+</body>
+</html>

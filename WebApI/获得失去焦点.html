@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../HTML+CSS/HTML+CSS品优购项目/CSS/base.css">
+</head>
+
+<body>
+    <input type="text" name="" id="" value="手机">
+    <script>
+        //事件源
+        var inp = document.querySelector('input');
+        //获得焦点
+        /* inp.onfocus = function(){
+            console.log('1');
+        } */
+        //失去焦点
+        /* inp.onblur = function () {
+            console.log('2');
+        } */
+       
+
+        //获得焦点时清空 value 内的内容
+        inp.onfocus = function () {
+            if (inp.value === '手机') {
+                inp.value = '';
+            }
+            inp.style.color = '#333';
+            //inp.style.borderColor = 'blue';
+        }
+        //失去焦点时value重新填入原内容
+        inp.onblur = function () {
+            if (inp.value === '') {
+                inp.value = '手机'; 
+            }
+            inp.style.color = '#999';
+          
+        }
+
+
+    </script>
+</body>
+
+</html>

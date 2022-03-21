@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        //通过js修改样式，样式的采用驼峰命名法 ： backgroundColor、 fontSize
+        //修改的样式为行内样式 css权重比较高  （行内样式>内嵌样式>外部样式）
+
+        //事件源
+        var div = document.querySelector('div');
+        //点击事件 处理程序 修改样式 style
+        div.onclick = function(){
+            this.style.backgroundColor = 'red';
+            this.style.width = '150px'
+        }
+    </script>
+
+</body>
+</html>

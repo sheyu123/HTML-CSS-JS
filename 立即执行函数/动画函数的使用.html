@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/annimate.js"></script>
+    <style>
+        .sliderbar{
+            width: 100px;
+            height: 150px;
+            background-color: aqua;
+            margin: 0 auto;
+            position: relative;
+            cursor: move;
+        }
+
+        .con{
+            width: 200px;
+            height: 50px;
+            background-color: blueviolet;
+            position: absolute;
+            top: 0;
+            left: 100px;
+        }
+
+        span{
+            display: inline-block;
+            width: 100px;
+            height: 50px;
+            background-color: blueviolet;
+            text-align: center;
+            line-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sliderbar">
+        <span>《</span>
+        <div class="con">问题反馈</div>
+    </div>
+    <script>
+        var span = document.querySelector('span'); 
+        var con = document.querySelector('.con');
+        var sliderbar = document.querySelector('.sliderbar');
+
+        var spanWidth = con.offsetWidth ;
+        
+        //移入
+        sliderbar.addEventListener('mouseenter',function(){
+            animation(con , -spanWidth,function(){
+                span.innerHTML = "》"
+            });
+        })
+        //移出
+        sliderbar.addEventListener('mouseleave',function(){
+            animation(con , 100,function(){
+                
+                span.innerHTML = "《"
+            });
+        })
+    </script>
+</body>
+</html>
