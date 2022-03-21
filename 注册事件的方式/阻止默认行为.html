@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>13</div>
+    <a href="https://www.baidu.com">百度</a>
+    <script>
+        //返回事件类型 e.type
+        var div  = document.querySelector('div');
+        div.onclick = function(e){ //点击事件
+            console.log(e.type);
+        }
+        div.onmouseover = function(e){ //移入事件
+            console.log(e.type);
+        }
+        div.onmouseout = function(e){ //移出事件
+            console.log(e.type);
+        }
+
+        //阻止默认行为
+        var as = document.querySelector('a');
+        as.addEventListener('click',function(e){
+            e.preventDefault(); //dom标准写法
+        });
+
+        /* as.onclick = function(e){
+            e.preventDefault();//普通浏览器
+            e.returnValue;//低版本浏览器
+            return false; ///我们可以利用return false也能阻止默认行为没有兼容性问题特点: return后面的代码不执行了，而且只限于传统的注册方式
+        } */
+
+        
+    </script>
+</body>
+</html>

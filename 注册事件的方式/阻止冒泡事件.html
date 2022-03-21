@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 500px;
+            height: 500px;
+            background-color: aqua;
+        }
+        .son{
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="son">
+            son
+        </div>
+    </div>
+
+    <script>
+
+        //冒泡事件（从内往外执行）
+        var box = document.querySelector('.box'); //获得外层div
+        var son = document.querySelector('.son');//获得内层div
+
+        son.addEventListener('click',fn); //添加事件监听
+        function fn(e){
+            alert('son');
+
+            e.stopPropagation(); //阻止冒泡事件
+            
+            son.removeEventListener('click',fn); //删除事件
+        }
+        
+        box.addEventListener('click',fn1);//添加事件监听
+        function fn1(){
+            alert('box');
+            
+        }
+
+        document.addEventListener('click',function(){ //document
+            alert('我是document');
+        })
+
+        /* //解决兼容问题
+        if( e && e.stopPropagation){
+            e.stopPropagation();
+        }else{
+            window.event.cancelBubble = true;
+        } */
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <script>
+        //注册事件的第一种方式
+        var btn = document.querySelectorAll('button');
+       /*  btn[0].onclick = function(){
+            alert('我是窗口1')
+        }
+        btn[0].onclick = function(){
+            alert('我是窗口2')
+        } */
+
+        //当为同一个元素添加两种不同的事件时，需要使用事件监听 addEventListener
+        //(1）里面的事件类型是字符串必定加引号而且不带on
+        //(2）同一个元素同一个事件可以添加多个侦听器（事件处理程序)
+        btn[0].addEventListener('click',function(){
+            alert('我是第二');
+        })
+        btn[0].addEventListener('click',function(){
+            alert('我是第三');
+        })
+    </script>
+</body>
+</html>

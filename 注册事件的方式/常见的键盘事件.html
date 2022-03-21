@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //常用的键盘事件
+        //1.keyup 键盘弹起事件
+        document.addEventListener('keyup',function(){
+            console.log('我弹起来了');
+        })
+
+         //2.keyup 键盘按下事件
+        document.addEventListener('keydown',function(){
+            console.log('我按下去了');
+        })
+
+         //3.keyup 键盘按下了事件press
+        document.addEventListener('keypress',function(){ //不能识别功能键，比如 ctrl ，左右箭头，shift 等
+            console.log('我按下去了press');
+        })
+
+        //4. 事件执行顺序
+        // keydown ----> keypress  -------> keyup
+
+    </script>
+</body>
+</html>

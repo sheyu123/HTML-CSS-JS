@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            height: 50px;
+            width: 50px;
+            background-color: rebeccapurple;
+        }
+    </style>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <script>
+        //删除事件(传统)
+        var div1 = document.querySelectorAll('div');
+        //点击事件
+        div1[0].onclick = function(){
+            alert('11');
+            //删除点击事件
+            div1[0].onclick = null;
+        }
+
+        //事件监听
+        var div2 = document.querySelectorAll('div');
+        //删除事件需要单独声明函数
+        div2[1].addEventListener('click',fn)
+
+        function fn(){
+            alert('22')
+            //删除事件
+            div2[1].removeEventListener('click',fn);
+        }
+
+        // 时间删除兼容性问题
+        function removeEventListener(element,eventName,fn){
+            //判断当前浏览器是否支持removeEventListener 方法
+            if(element.removeEventListener){
+                element.removeEventListener(eventName,fn); //第三个参数默认false
+            }else if(element.detachEvent){
+                element.detachEvent('on'+eventName,fn);
+            }else{
+                element['on'+eventName] = null;
+            }
+        }
+    </script>
+</body>
+</html>
