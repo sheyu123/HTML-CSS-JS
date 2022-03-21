@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //创建类
+        class Person{
+            //判断该对象是否是实例的对象
+            static[Symbol.hasInstance](param){
+                console.log(param);//{name: '小红'}
+                console.log('是否实例对象');
+                
+            }
+        }
+
+        let str = {
+            name : '小红',
+        };
+        
+        console.log(str instanceof Person); //false
+
+        let cs1 = [1,2,5,6];
+        let cs2 = [11,22,55,66];
+        //false 合并的数组不展开
+        cs2[Symbol.isConcatSpreadable] = false;
+        console.log(cs1.concat(cs2));//(5) [1, 2, 5, 6, Array(4)]
+
+        console.log();
+    </script>
+</body>
+</html>

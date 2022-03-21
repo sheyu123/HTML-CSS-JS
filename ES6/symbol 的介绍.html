@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //创建symbol
+        let s = Symbol();
+        console.log(s,typeof s);
+
+        //Symbol.for 创建
+        let num1 = Symbol.for('好运来');
+        let num2 = Symbol.for('好运来');
+
+        let num3 = Symbol('好运来');
+        let num4 = Symbol('好运来');
+
+        console.log(num1 === num2); //true
+        console.log(num3 === num4); //false
+
+        //Symbol 不能与其他数据进行运算
+        let result = s + 100;
+        console.log(result); // Cannot convert a Symbol value to a number
+
+        //基本数据类型
+        //string、Object、Null、Number、Boolean、Symbol、Undefined
+    </script>
+</body>
+</html>

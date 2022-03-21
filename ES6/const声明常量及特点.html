@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //声明常量
+        const LOL = '名人堂';
+        // console.log(LOL);//名人堂
+
+        //1.常量不能修改
+        //LOL = 'dj';
+        //console.log(LOL);//Assignment to constant variable.
+
+        //1.1 常量不能重复声明
+        // const LOL = '22';
+
+        //2.块级作用域
+        {
+           const DJ = 'mc子龙'; 
+           console.log(DJ)//mc子龙
+        }
+       // console.log(DJ);//DJ is not defined
+
+       //3.常量的数组的值 和对象属性方法可以修改
+       const ARRY = [1,5,8,8];
+       ARRY.push('UZI');
+       console.log(ARRY);//(5) [1, 5, 8, 8, 'UZI'] 因为原来数组对象的地址没有发生改变
+    
+      
+    </script>
+</body>
+</html>

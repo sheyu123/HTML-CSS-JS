@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //let声明变量
+        let a, b, c;
+        let e = 100; f = '好运阿狸'; g = '好原来';
+       
+        //1.let 不存在变量提升与var 不同
+        /*    console.log(bbc);//Cannot access 'bbc' before initialization (初始化前无法访问)
+        let bbc = '好人卡'; */
+
+        console.log(as);//undefined
+        var as = 132;
+
+        //2.let 不能重复声明 ，var 可以重复声明
+       /*  let bs = '123';
+        let bs = '1234';
+        console.log(bs); */
+
+        var cs = 13;
+        var cs = 15;
+        console.log(cs);
+
+        //3.块级作用链（let声明的变量 只在代码块中有效）
+      /*  {
+            let str = '谷歌';
+        }
+        console.log(str); *///str is not defined
+
+        {
+            var  str = '火狐';
+        }
+        console.log(str)//火狐
+
+        //4.不影响作用域链
+        {
+            let num = '王多鱼';
+            function uname(){
+                console.log(num);//王多鱼
+            }
+            uname();
+        }
+
+
+    </script>
+</body>
+</html>

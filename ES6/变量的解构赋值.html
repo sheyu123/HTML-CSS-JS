@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //创建一个常量数组
+        //ES6允许按照一定模式从数组和对象中提取值，对变量进行赋值，
+        //这被称为解构赋值。
+        const ARR = ['刘德华','张学友','郭富城','黎明'];
+        let [num1,num2,num3,num4] = ARR;
+        console.log(num1);//刘德华
+        console.log(num2);//张学友
+        console.log(num3);//郭富城
+        console.log(num4);//黎明
+
+        //创建一个常量对象
+        const CSGO = {
+            name : '好运来',
+            age : 28,
+            sex : '未知',
+            luck : function(){
+                console.log('带来好运');
+            }
+        }
+       /*  //解构赋值。
+        let{name,age,sex,luck} = CSGO;
+        console.log(name);
+        console.log(age);
+        console.log(sex);
+        //调用方法
+        luck();
+
+        const BBS = {
+            uname : 'bbc',
+            ages : 18,
+            jineng : function(){
+                console.log('wusuoshishi');
+            }
+        }
+        //解构赋值
+        let {uname,ages,jineng} = BBS;
+        console.log(uname);
+        console.log(ages);
+        jineng(); */
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <script>
+        //声明数组
+        const sum1 = ['大鱼','海棠','鲸落','鲨凋'];
+        const sum2 = ['UZI','小虎','MLXG','LEMON'];
+
+        /* const sums = sum1.concat(sum2);
+        console.log(sums);//Array(8)*/
+
+        //1.利用[...] 合并数组
+        const sums = [...sum1,...sum2]; // =>['大鱼','海棠','鲸落','鲨凋','UZI','小虎','MLXG','LEMON']
+        console.log(sums);//(8) ['大鱼', '海棠', '鲸落', '鲨凋', 'UZI', '小虎', 'MLXG', 'LEMON']
+
+        //2.将伪数组转为数组序列
+        const divs = document.querySelectorAll('div');
+        console.log(divs);//NodeList(3) [div, div, div]
+        
+        const d = [...divs];
+        console.log(d);//(3) [div, div, div]
+
+    </script>
+</body>
+</html>

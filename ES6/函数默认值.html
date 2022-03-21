@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Es6 允许给函数形参赋初始值(一般位置要靠后)
+      /*   function fn(a,b,c = 10){
+            return a+b+c;
+        }
+        
+        console.log(fn(1,2)); //13 */
+        
+        //2.与解构赋值结合
+        function cont({host = '123',username,passwords,port}){
+            console.log(host);
+            console.log(username);
+            console.log(passwords);
+            console.log(port);
+           
+        }
+        cont({
+            // host : 'locahost',
+            username : 'root',
+            passwords: 'root',
+            port : 3306
+        })
+        
+        
+    </script>
+</body>
+</html>
