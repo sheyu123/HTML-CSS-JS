@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //构造函数的继承
+        //父级
+        function Father(band,price){
+            this.band = band;
+            this.price = price;
+        }
+        //添加方法
+        Father.prototype.sing = function(){
+            console.log('我会唱歌');
+        }
+
+        //子类继承父类属性和方法
+        function Son(band,price,color,size){
+            //利用call 改变this指向
+            Father.call(this,band,price);
+            this.color = color;
+            this.size = size;
+        }
+
+        //让子类的原型对象指向父类实例对象
+        Son.prototype = new Father();
+        Son.prototype.constructor = Son;
+
+        //添加方法
+        Son.prototype.call = function(){
+            console.log('我可以打电话');
+        }
+        Son.prototype.games = function(){
+            console.log('我可以玩游戏');
+        }
+
+        //实例化子类
+        let son = new Son('红米',5888,'red',5);
+        console.log(son);
+
+    </script>
+</body>
+</html>

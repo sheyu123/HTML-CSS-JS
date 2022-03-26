@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //通过Promise 构造函数进行封住
+        const p = new Promise(function (resolve,reject) {
+            //创建xhr 对象
+            const xhr = new XMLHttpRequest();
+            //open 方法
+            xhr.open('GET', 'https://api.apiopen.top/getJoke?page=1&count=2&type=video');
+            //send 方法
+            xhr.send();
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status >= 200 && xhr.status < 300) {
+                        resolve(JSON.parse(xhr.response));  
+                    }else{
+                        reject(xhr.status);
+                    }
+                    
+                }
+                
+            }
+        });
+
+        //调用方法
+        p.then(function(value){
+            console.log(value);
+        },function(reason){
+            console.log(reason);
+        });
+    </script>
+</body>
+
+</html>

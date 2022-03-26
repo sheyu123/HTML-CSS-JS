@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //构造函数
+        function Phone(){
+
+        }
+        //给Phone 添加静态属性和方法
+        Phone.name = 'HuaWei';
+        Phone.change = function(){
+            console.log('我可以发短信');
+        }
+        //给Phone 原型对象添加方法
+        Phone.prototype.games = function(){
+            console.log("我可以玩游戏");
+        }
+        //实例化
+        let phone = new Phone();
+        /* console.log(phone.name);//undefined
+        console.log(phone.change());//phone.change is not a function */
+        phone.games();//我可以玩游戏
+
+
+        //类（添加静态属性和方法）
+        class Shouji{
+            static name = '小米';
+            static change(){
+                console.log('我是类的静态方法');
+            }
+        }
+
+        //实例化类
+        let shouji = new Shouji();
+        console.log(shouji.name);//undefined
+        //shouji.change();//shouji.change is not a function
+    </script>
+</body>
+</html>

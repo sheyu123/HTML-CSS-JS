@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //promise（构造函数） 的基本使用情况
+        const p = new Promise(function(resolve,reject){
+            // const data = '数据读取成功';
+            // resolve(data);
+            const err = '数据读取失败';
+            reject(err);
+        });
+        //调用promise 实例的方法
+        //数据成功调用
+        p.then(function(value){
+            // console.log(value);
+        },function(reason){
+            console.log(reason);
+        });
+
+    </script>
+</body>
+</html>

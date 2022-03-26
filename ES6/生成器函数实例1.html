@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //需求1秒后打印111,2秒后打印222,3秒后打印333
+        //定时器嵌套(回调地狱)
+        /* setTimeout(() => {
+            console.log('111');
+            setTimeout(() => {
+                setTimeout(() => {
+                    console.log('333');
+                }, 3000);
+                console.log('222');
+            }, 2000);
+        }, 1000); */
+
+        //通过生成器函数解决
+        function one(){
+            setTimeout(() => {
+                console.log('111');
+                g.next();
+            }, 1000);
+        }
+        function two(){
+            setTimeout(() => {
+                console.log('222');
+                g.next();
+            }, 2000);
+        }
+        function three(){
+            setTimeout(() => {
+                console.log('333');
+                g.next();
+            }, 3000);
+        }
+
+        //创建生成器函数
+        function* gen(){
+            yield one();
+            yield two();
+            yield three();
+        }
+        const g = gen();
+        //调用next 方法
+        g.next();
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //创建生成器函数
+        function* gen(str){
+            console.log(str);
+            const b = yield '111';
+            console.log(b);//BBB
+
+            const c = yield '222';
+            console.log(c);
+
+            const d = yield '333';
+            console.log(d);
+        }
+        const fn = gen('AAA');
+        console.log(fn.next());
+        console.log(fn.next('BBB')); //第二次传入的参数，将作为一个yield整体的返回的结果
+        console.log(fn.next('CCC')); //第三次传入的参数，将作为一个yield整体的返回的结果
+        console.log(fn.next('DDD')); //第四次传入的参数，将作为一个yield整体的返回的结果
+    </script>
+</body>
+</html>

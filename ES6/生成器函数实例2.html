@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //通过生成器函数获取 用户数据——》订单数据->商品数据
+        function getUser() {
+            setTimeout(() => {
+                let a = '用户数据';
+                g.next(a); //第二次next传入的参数，将作为一个yield的整体返回值
+            }, 1000);
+        }
+        function getDingdan() {
+            setTimeout(() => {
+                let a = '订单数据';
+                g.next(a);
+            }, 1000);
+        }
+        function getShop() {
+            setTimeout(() => {
+                let a = '商品数据';
+                g.next(a);
+            }, 1000);
+        }
+
+        //创生成器函数
+        function* gen(){
+            const user = yield getUser();
+            console.log(user);
+            const dingdan = yield getDingdan();
+            console.log(dingdan);
+            const shop =yield getShop(); 
+            console.log(shop);
+        }
+
+        const g = gen();
+        g.next();
+
+    </script>
+</body>
+
+</html>

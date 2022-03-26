@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //构造函数
+        function Phone(band,price){
+            this.band = band;
+            this.price = price;
+        }
+        //添加方法
+        Phone.prototype.call = function(){
+            console.log('我可以打电话');
+        }
+        //实例化对象
+        let HuaWei = new Phone('huawei',5999);
+        HuaWei.call();
+        console.log(HuaWei);
+
+        //使用类
+        class Shouji{
+            constructor(band,price){
+                this.band = band;
+                this.price = price; 
+            };
+            sing(){
+                console.log('我可以播放歌曲');
+            }  
+        }
+        //实例化
+        let Yijia = new Shouji('一加',2999);
+        Yijia.sing();
+        console.log(Yijia);
+    </script>
+</body>
+</html>

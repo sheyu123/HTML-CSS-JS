@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //声明 map
+        let m = new Map();
+        //添加元素
+        m.set('name','尚硅谷');
+       
+        m.set('change',function(){
+            console.log('我们可以改变你');
+        })
+        const key = {
+            name :'我是对象',
+        }
+        m.set(key,['北京','上海','深圳','山东']);
+        console.log(m);//Map(3) {'name' => '尚硅谷', 'change' => ƒ, {…} => Array(4)}
+
+        //遍历
+        for (const iterator of m) {
+          console.log(iterator);
+        }
+
+        //删除
+        m.delete('name');
+        console.log(m);//Map(2) {'change' => ƒ, {…} => Array(4)}
+
+        //获取
+        console.log(m.get(key));//(4) ['北京', '上海', '深圳', '山东']
+        console.log(m.get('change'));
+
+        //清空
+        m.clear();
+        console.log(m);
+        
+        
+    </script>
+</body>
+</html>

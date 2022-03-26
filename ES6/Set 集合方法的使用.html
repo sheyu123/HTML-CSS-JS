@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const s = new Set();
+        console.log(s, typeof s);//Set(0)[[Entries]]No propertiessize: 0[[Prototype]]: Set 'object'
+
+        //可以传入可迭代的参数
+        const s1 = new Set(['刘德华','黎明','郭富城','张学友']);
+        console.log(s1);
+        //数组的长度
+        console.log(s1.size);
+        //添加
+        console.log(s1.add('王祖蓝'));
+        //检测
+        console.log(s1.has('张建军'));
+        //删除
+        console.log(s1.delete('黎明'));
+        console.log(s1);//Set(4) {'刘德华', '郭富城', '张学友', '王祖蓝'}
+        //清空
+        s1.clear();
+        console.log(s1);//Set(0) {size: 0}
+
+        //使用for..of..遍历
+        const s2 = new Set(['刘德华','黎明','郭富城','张学友']);
+        for (const iterator of s2) {
+            console.log(iterator);
+        }
+    </script>
+</body>
+</html>

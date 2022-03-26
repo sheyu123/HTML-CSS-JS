@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Es6 对象方法的扩展
+        //1.Ojbect.is 判断两个值是否相等
+        console.log(Object.is(10, 10));//true
+        console.log(Object.is(10, 20));//false
+        console.log(Object.is(NaN, NaN));//true
+        console.log(NaN === NaN);//false
+
+        //2.Object.assign对象的合并
+        const fn = {
+            name: '刘德华',
+            age: 18,
+            sex: '男',
+            sing: function () {
+                console.log('我喜欢唱歌');
+            }
+        }
+        const fn2 = {
+            name: '李浩',
+            age: 58,
+            sex: '男',
+            game: function () {
+                console.log('喜欢玩游戏');
+            }
+        };
+        console.log(Object.assign(fn, fn2));
+
+        //3.Object.setPrototypeOf 设置原型对象 Object.getPrototypeOf
+        const school = {
+            name: '尚硅谷',
+        }
+        const city = {
+            citys: ['北京', '上海']
+        }
+        //设置school的原型对象
+        Object.setPrototypeOf(school, city);
+        console.log(Object.getPrototypeOf(school));
+        console.log(school);
+
+
+    </script>
+</body>
+
+</html>
