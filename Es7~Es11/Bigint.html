@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Bigint :主要用于大型数据计算
+
+        let str = 568n;
+        console.log(str, typeof str);//568n 'bigint'
+        console.log(BigInt(str));//568n
+
+        //获得数值的最大值
+        let max = Number.MAX_SAFE_INTEGER;
+        console.log(max);//9007199254740991
+        console.log(max + 1);//9007199254740992
+
+        console.log(BigInt(max));//9007199254740991n
+        console.log(BigInt(max)+BigInt(1));//9007199254740992n
+    </script>
+</body>
+</html>

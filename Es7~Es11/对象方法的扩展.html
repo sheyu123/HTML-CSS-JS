@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const fn = {
+            name:'好运来',
+            arry1:['刘德华','张学友','郭富城','黎明'],
+            sing :function(){
+                console.log('喜欢唱歌');
+            }
+        }
+        //获取对象的键
+        console.log(Object.keys(fn)); //(3) ['name', 'arry1', 'sing']
+        //获取对象的值
+        console.log(Object.values(fn));//['好运来', Array(4), ƒ]
+
+        //entires 返回一个数组
+        console.log(Object.entries(fn));//(3) [Array(2), Array(2), Array(2)]
+
+        for([key,value] of Object.entries(fn)){
+            console.log(`${key}:${value}`);
+        }
+        //创建Map
+        const m = new Map(Object.entries(fn));
+        console.log(m.get('name'));
+        console.log(m.get('好运来'));//undefined
+
+        //对象属性的描述对象
+        console.log(Object.getOwnPropertyDescriptors(fn));
+
+        const fn2 = Object.create(null,{
+            name:{
+                value:'佩奇',
+                writable:true,
+                enumerable:true,
+                configurable:true,
+            }
+        })
+
+    </script>
+</body>
+</html>

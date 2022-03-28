@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //正则扩展 - dotAll模式
+        let str = `
+            <ul>
+                <li>
+                    <a>哪吒</a>
+                    <p>上映时间:2020-02-05</p>
+                </li> 
+                <li>
+                    <a>李白</a>
+                    <p>上映时间:2010-02-05</p>
+                </li> 
+            </ul>
+        `;
+            //声明正则
+           /*  const reg = /<li>\s+<a>(.*?)<\/a>\s+<p>(.*?)<\/p>/ ;
+            //执行匹配
+            const result = reg.exec(str);
+            console.log(result); */
+
+            const reg = /<li>.*?<a>(.*?)<\/a>.*?<p>(.*?)<\/p>/gs;
+            //执行匹配
+            // const result = reg.exec(str);
+
+            let result;
+            let data = [];
+            while(result = reg.exec(str)){
+                data.push({title:result[1],time:result[2]})
+            }
+            console.log(data);
+    </script>
+</body>
+
+</html>

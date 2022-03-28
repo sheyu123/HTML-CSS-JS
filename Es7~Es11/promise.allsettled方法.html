@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //声明promise 对象
+        const p1 = new Promise((resolve,reject) =>{
+            resolve('商品数据-1');
+        });
+        const p2 = new Promise((resolve,reject) =>{
+            resolve('商品数据-2');
+        });
+        //调用Promise.allSettled (始终返回一个成功的状态，能够得到成功和失败的状态和值)
+        const result = Promise.allSettled([p1,p2]);
+        console.log(result);
+
+        //all() : 必须全部成功才能返回成功的值
+        const r2 = Promise.all([p1,p2]);
+        console.log(r2);
+    </script>
+</body>
+</html>

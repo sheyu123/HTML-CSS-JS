@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //声明一个二维数组
+        let str = [1,4,7,[78,88]];
+        //转为一个一维数组
+        console.log(str.flat());//(5) [1, 4, 7, 78, 88]
+
+        //声明一个三维数组
+        let str2 = [1,4,5,8,[1,5,88,[8,99,82]]]
+        //转为二维数组
+        console.log(str2.flat());//(8) [1, 4, 5, 8, 1, 5, 88, Array(3)]
+        //转为一维数组
+        console.log(str2.flat(2));//(10) [1, 4, 5, 8, 1, 5, 88, 8, 99, 82]
+
+        let f1 = [1,5,8,9,8]; 
+        let result = f1.map(item =>item*10);
+        console.log(result);//(5) [10, 50, 80, 90, 80]
+
+        let f2 = [1,5,8,9,8]; 
+        //二维数组变一维
+        let result2 = f2.flatMap(item =>[item*10]);
+        console.log(result2);//(5) [10, 50, 80, 90, 80]
+        
+    </script>
+</body>
+</html>

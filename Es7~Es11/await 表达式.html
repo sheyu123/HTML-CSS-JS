@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //创建promise 对象
+        const p = new Promise((resolve, reject) => {
+            //返回成功
+            //resolve('用户数据');
+
+            //返回失败
+            reject('返回失败');
+        });
+        //await 表达式（需要放在async 函数中使用）操作符用于等待一个Promise 对象
+        async function fn() {
+            try {
+                let result = await p;
+                console.log(result);//用户数据
+            } catch (error) {
+                console.log(error);//返回失败
+            }
+        }
+        //调用fn
+        fn();
+    </script>
+</body>
+
+</html>

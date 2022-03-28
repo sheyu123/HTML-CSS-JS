@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         let str = `
+            <ul>
+                <li>
+                    <a>哪吒</a>
+                    <p>上映时间:2020-02-05</p>
+                </li> 
+                <li>
+                    <a>李白</a>
+                    <p>上映时间:2010-02-05</p>
+                </li> 
+            </ul>
+        `;
+
+        //正则表达式
+        const result = /<li>.*?<a>(.*?)<\/a>.*?<p>(.*?)<\/p>/sg
+        //调用方法
+        const fn = str.matchAll(result);
+        
+        /* for(v of fn){
+            console.log(v);
+        } */
+
+        //扩展运算符
+        const arr = [...fn];
+        console.log(arr);
+    </script>
+</body>
+</html>

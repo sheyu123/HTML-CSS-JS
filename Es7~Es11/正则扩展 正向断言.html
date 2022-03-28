@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //正向断言
+       /* let str = '1346好多呀5555啦啦啦';
+       const reg = /\d+(?=啦)/;
+       const result = reg.exec(str);
+       console.log(result); */
+
+       //反向断言
+       let str2 = '1346好多呀5555啦啦啦';
+       let reg = /(?<=呀)\d+/;
+       const result = reg.exec(str2);
+       console.log(result);
+    </script>
+</body>
+</html>

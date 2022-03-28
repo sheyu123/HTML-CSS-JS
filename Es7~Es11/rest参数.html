@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        // Rest参数与spread扩展运算符在 ES6 中已经引入，不过 ES6中只针对于数组，在ES9中为对象提供了像数组一样的 rest参数和扩展运算符
+        function fn({name,age,...user}){
+            console.log(name);
+            console.log(age);
+            console.log(user);
+        }
+        fn({
+            name :'刘德华',
+            age:28,
+            sex:'男',
+            sing:function(){
+                console.log('恭喜发财');
+            }
+        })
+
+
+    </script>
+</body>
+</html>

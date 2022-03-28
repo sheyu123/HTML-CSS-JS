@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //创建二维数组
+        const fn = [
+            ['name','刘德华'],
+            ['sing','歌手,演员,榜样'],
+        ]
+        //将二维数组转为对象
+        const result = Object.fromEntries(fn);
+        console.log(result);//{name: '刘德华', sing: '歌手,演员,榜样'}
+
+        //创建Map
+        let m = new Map();
+        m.set('name','好运来');
+        console.log(m);//Map(1) {'name' => '好运来'}
+
+        //entries //将对象转为二维数组
+        let str = {
+            name :'麻辣',
+            color:'red',
+            fn:function(){
+                console.log('喜欢吃辣');
+            }
+        };
+
+        const r2 = Object.entries(str);
+        console.log(r2);
+    </script>
+</body>
+</html>
